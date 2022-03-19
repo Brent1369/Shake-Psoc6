@@ -1,6 +1,6 @@
 # Shake Psoc6
 
-In this project a Psoc 6 with a 028 TFT shield is used to measure the accelerometer values. the data is send and received via UDP.
+In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the accelerometer values. the data is send and received via UDP.
 
 when the Psoc starts it will send 'A' to the server(or any device you want to connect to the Psoc)
 
@@ -15,6 +15,11 @@ Change WIFI_SSID and WIFI_PASSWORD to the name and password of your wifi network
 Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your server in udp_client.h   
 ![image](./server.png)  
 
+###Wrong sensor type
+The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround like the adresses of a BMI270 for this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code 
+![image](./ifdef.png)  
+if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
+![image](./commented.png)![image](./uncommented.png) 
 
 ## Example
 
