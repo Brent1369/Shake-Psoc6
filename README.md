@@ -17,5 +17,5 @@ Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your serv
 
 
 ##Example
-![](example.MOV)
+![video](example.MOV)
 
