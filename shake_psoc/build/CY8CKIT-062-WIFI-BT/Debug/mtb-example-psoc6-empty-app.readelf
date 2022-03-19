@@ -17,9 +17,9 @@ Section Headers:
   [12] .stack_dummy      PROGBITS        08046800 0c2d90 001000 00      0   0  8
   [13] .ARM.attributes   ARM_ATTRIBUTES  00000000 0c3d90 00002e 00      0   0  1
   [14] .comment          PROGBITS        00000000 0c3dbe 00004c 01  MS  0   0  1
-  [15] .debug_line       PROGBITS        00000000 0c3e0a 09eb12 00      0   0  1
-  [16] .debug_info       PROGBITS        00000000 16291c 36bf21 00      0   0  1
-  [17] .debug_abbrev     PROGBITS        00000000 4ce83d 01e567 00      0   0  1
+  [15] .debug_line       PROGBITS        00000000 0c3e0a 09eb14 00      0   0  1
+  [16] .debug_info       PROGBITS        00000000 16291e 36bf21 00      0   0  1
+  [17] .debug_abbrev     PROGBITS        00000000 4ce83f 01e567 00      0   0  1
   [18] .debug_aranges    PROGBITS        00000000 4ecda8 0050c0 00      0   0  8
   [19] .debug_str        PROGBITS        00000000 4f1e68 041b08 01  MS  0   0  1
   [20] .debug_ranges     PROGBITS        00000000 533970 008c08 00      0   0  1

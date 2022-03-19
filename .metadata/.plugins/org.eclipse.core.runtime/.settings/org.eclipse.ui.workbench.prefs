@@ -5,11 +5,27 @@ eclipse.preferences.version=1
 editors=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<editors>\r\n<descriptor id\="com.cypress.studio.app.config.configeditor" image\="icons/config_file_16.png" internal\="false" label\="ModusToolbox" launcher\="com.cypress.studio.app.hooks.CyConfigEditorLauncher" openMode\="4" open_in_place\="false" plugin\="com.cypress.studio.app"/>\r\n<descriptor id\="org.eclipse.ui.browser.editorSupport" image\="$nl$/icons/obj16/internal_browser.png" internal\="false" label\="Web Browser" launcher\="org.eclipse.ui.internal.browser.BrowserLauncher" openMode\="4" open_in_place\="false" plugin\="org.eclipse.ui.browser"/>\r\n</editors>
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=41,41,41
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=43,44,45
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_SELECTED_TEXT_COLOR=0,1,2
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=204,204,204
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=41,41,41
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=43,44,45
+org.eclipse.ui.workbench.ACTIVE_TAB_INNER_KEYLINE_COLOR=255,255,255
+org.eclipse.ui.workbench.ACTIVE_TAB_OUTER_KEYLINE_COLOR=218,218,218
+org.eclipse.ui.workbench.ACTIVE_TAB_OUTLINE_COLOR=218,218,218
+org.eclipse.ui.workbench.ACTIVE_TAB_SELECTED_TEXT_COLOR=0,1,2
 org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=221,221,221
+org.eclipse.ui.workbench.ACTIVE_TAB_UNSELECTED_TEXT_COLOR=0,1,2
+org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_END=240,240,240
+org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_START=242,242,242
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_END=49,53,56
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=59,64,66
+org.eclipse.ui.workbench.INACTIVE_TAB_INNER_KEYLINE_COLOR=255,255,255
+org.eclipse.ui.workbench.INACTIVE_TAB_OUTER_KEYLINE_COLOR=218,218,218
+org.eclipse.ui.workbench.INACTIVE_TAB_OUTLINE_COLOR=218,218,218
+org.eclipse.ui.workbench.INACTIVE_TAB_SELECTED_TEXT_COLOR=0,1,2
 org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=187,187,187
+org.eclipse.ui.workbench.INACTIVE_TAB_UNSELECTED_TEXT_COLOR=0,1,2
+org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_END=228,228,228
+org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_START=232,232,232
+org.eclipse.ui.workbench.LINK_COLOR=0,1,2
 resourcetypes=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<editors version\="3.1">\r\n<info extension\="cyusbdev" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="modus" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cycapsense" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cyqspi" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cyseglcd" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cymem" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="html" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="mtbml" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cybt" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="shtml" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="htm" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="mtblin" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="cyacd2" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n<info extension\="mtbezpd" name\="*">\r\n<editor id\="com.cypress.studio.app.config.configeditor"/>\r\n<defaultEditor id\="com.cypress.studio.app.config.configeditor"/>\r\n</info>\r\n</editors>

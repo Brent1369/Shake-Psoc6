@@ -49,6 +49,8 @@
  * CY_WCM_MAX_SSID_LEN and CY_WCM_MAX_PASSPHRASE_LEN as defined in cy_wcm.h file.
  */
 
+#define bmi160SwitchAdresses 1
+
 #define WIFI_SSID                         "telenet-A6AD7E7"
 #define WIFI_PASSWORD                     "vzemhjvX4arp"
 

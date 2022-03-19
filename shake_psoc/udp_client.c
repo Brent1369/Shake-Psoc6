@@ -57,6 +57,7 @@
 /* UDP client task header file. */
 #include "udp_client.h"
 #include "mtb_bmi160.h"
+
 /*******************************************************************************
 * Macros
 ********************************************************************************/
@@ -225,12 +226,21 @@ void udp_client_task(void *arg)
 				   printf("Accel: X:%6d Y:%6d Z:%6d\n", data.accel.x, data.accel.y, data.accel.z);
 				   printf("Gyro : X:%6d Y:%6d Z:%6d\n\n", data.gyro.x, data.gyro.y, data.gyro.z);
 
+#ifdef bmi160SwitchAdresses
 				   data.gyro.x = (data.gyro.x <=0)? -data.gyro.x : data.gyro.x;
 				   data.gyro.y = (data.gyro.y <=0)? -data.gyro.y : data.gyro.y;
 				   data.gyro.z = (data.gyro.z <=0)? -data.gyro.z : data.gyro.z;
 
 				   accelArray[j]+= data.gyro.x + data.gyro.y + data.gyro.z;
+#else
 
+				   data.accel.x = (data.accel.x <=0)? -data.accel.x : data.accel.x;
+				   data.accel.y = (data.accel.y <=0)? -data.accel.y : data.accel.y;
+				   data.accel.z = (data.accel.z <=0)? -data.accel.z : data.accel.z;
+
+				   accelArray[j]+= data.accel.x + data.accel.y + data.accel.z;
+
+#endif
 				   cyhal_system_delay_ms(100);
 				}
 
