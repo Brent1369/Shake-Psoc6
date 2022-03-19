@@ -52,6 +52,12 @@
 #define WIFI_SSID                         "telenet-A6AD7E7"
 #define WIFI_PASSWORD                     "vzemhjvX4arp"
 
+/* Change the server IP address to match the UDP server address (IP address
+ * of the PC).
+ */
+#define UDP_SERVER_IP_ADDRESS             MAKE_IPV4_ADDRESS(192, 168, 0, 253)
+#define UDP_SERVER_PORT                   (24042)
+
 /* Security type of the Wi-Fi access point. See 'cy_wcm_security_t' structure
  * in "cy_wcm.h" for more details.
  */
@@ -68,11 +74,6 @@
                                           (((uint32_t) b) << 8) |\
                                           ((uint32_t) a))
 
-/* Change the server IP address to match the UDP server address (IP address
- * of the PC).
- */
-#define UDP_SERVER_IP_ADDRESS             MAKE_IPV4_ADDRESS(192, 168, 0, 253)
-#define UDP_SERVER_PORT                   (24042)
 
 #include <FreeRTOS.h>
 #include <task.h>
