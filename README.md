@@ -1,6 +1,6 @@
 # Shake Psoc6
 
-In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the accelerometer values. the data is send and received via UDP.
+In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the accelerometer values. The data is send and received via UDP.
 
 when the Psoc starts it will send 'A' to the server(or any device you want to connect to the Psoc)
 
