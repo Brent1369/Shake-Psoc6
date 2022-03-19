@@ -17,8 +17,6 @@ Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your serv
 
 
 ##Example
-![video](example.MOV)
-
 
 https://user-images.githubusercontent.com/69217508/159126515-e50976c9-af8f-44a0-b190-e4efb69d2e54.MOV
 
