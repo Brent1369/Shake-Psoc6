@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="Gyro"/>
 		<list key="findhistory">
+			<item value="gyro"/>
 			<item value="62"/>
 			<item value="vzemhjvX4arp"/>
 			<item value="62510"/>
@@ -16,6 +17,7 @@
 			<item value="bmi160_soft_reset"/>
 		</list>
 		<list key="replacehistory">
+			<item value="accel"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
