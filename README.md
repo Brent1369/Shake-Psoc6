@@ -18,7 +18,7 @@ Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your serv
 ###Wrong sensor type
 The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround like the adresses of a BMI270 for this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code 
 ![image](./ifdef.png)  
-if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
+if you have the BMI160 just comment out the #### #define bmi160SwitchAdresses 1
 ![image](./commented.png)![image](./uncommented.png) 
 
 ## Example
