@@ -10,17 +10,17 @@ After this time has passed the psoc will send the shake value in a string(asci) 
 ## How to use
 
 Change WIFI_SSID and WIFI_PASSWORD to the name and password of your wifi network in udp_client.h  
-![image](./wifi.png)   
+![image](./images/wifi.png)   
 
 Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your server in udp_client.h   
-![image](./server.png)  
+![image](./images/server.png)  
 
 ### Wrong sensor type
 The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround. Like the adresses of a BMI270.  
 For this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code 
-![image](./ifdef.png)  
+![image](./images/ifdef.png)  
 if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
-![image](./commented.png)![image](./uncommented.png)  
+![image](./images/commented.png)![image](./images/uncommented.png)  
 If your accelerometer values are higher then 100 while the psoc is sitting still(you are not shaking it) then you likely do have the BMI160 and you need to comment or remove the  #define bmi160SwitchAdresses 1
 ## Example
 
