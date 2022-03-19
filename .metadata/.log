@@ -1,0 +1,1695 @@
+!SESSION 2022-03-17 20:27:57.591 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.commons.notifications.feed 4 0 2022-03-17 20:28:02.460
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.commons.notifications.feed [271]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.tasks.ui 4 0 2022-03-17 20:28:02.464
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.tasks.ui [288]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+       org.eclipse.mylyn.commons.notifications.feed [271]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.wikitext.tasks.ui 4 0 2022-03-17 20:28:02.465
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.wikitext.tasks.ui [303]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.tasks.ui; bundle-version="3.7.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.tasks.ui; bundle-version="3.25.2.v20200814-0512"; singleton:="true"
+       org.eclipse.mylyn.tasks.ui [288]
+         Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+           -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+              org.eclipse.mylyn.commons.notifications.feed [271]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-03-17 20:29:30.112
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vreys'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 2 2 2022-03-17 20:29:39.694
+!MESSAGE Invalid preference category path: org.eclipse.mylyn.preferencePages.Mylyn (bundle: org.eclipse.mylyn.context.ui, page: org.eclipse.mylyn.context.ui.preferences)
+!SESSION 2022-03-17 20:30:47.622 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/vreys/OneDrive/school/shake_psoc/
+
+!ENTRY org.eclipse.mylyn.commons.notifications.feed 4 0 2022-03-17 20:30:49.469
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.commons.notifications.feed [271]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.tasks.ui 4 0 2022-03-17 20:30:49.475
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.tasks.ui [288]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+       org.eclipse.mylyn.commons.notifications.feed [271]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.wikitext.tasks.ui 4 0 2022-03-17 20:30:49.492
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.wikitext.tasks.ui [303]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.tasks.ui; bundle-version="3.7.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.tasks.ui; bundle-version="3.25.2.v20200814-0512"; singleton:="true"
+       org.eclipse.mylyn.tasks.ui [288]
+         Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+           -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+              org.eclipse.mylyn.commons.notifications.feed [271]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-03-17 20:30:53.852
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vreys'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-03-18 16:56:30.104 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.commons.notifications.feed 4 0 2022-03-18 16:56:32.063
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.commons.notifications.feed [271]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.tasks.ui 4 0 2022-03-18 16:56:32.066
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.tasks.ui [288]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+       org.eclipse.mylyn.commons.notifications.feed [271]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.wikitext.tasks.ui 4 0 2022-03-18 16:56:32.076
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.wikitext.tasks.ui [303]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.tasks.ui; bundle-version="3.7.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.tasks.ui; bundle-version="3.25.2.v20200814-0512"; singleton:="true"
+       org.eclipse.mylyn.tasks.ui [288]
+         Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+           -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+              org.eclipse.mylyn.commons.notifications.feed [271]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-03-18 16:57:26.338
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vreys'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2022-03-18 17:03:44.833
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.findNext: {ActionHandler(org.eclipse.ui.texteditor.FindNextAction@3b0305dd)} vs {ActionHandler(org.eclipse.ui.texteditor.FindNextAction@3b0305dd)} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+!STACK 0
+java.lang.IllegalStateException: Conflicting handlers: {[ActionHandler(org.eclipse.ui.texteditor.FindNextAction@3b0305dd),  for 'org.eclipse.ui.edit.findNext',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} vs {[ActionHandler(org.eclipse.ui.texteditor.FindNextAction@3b0305dd),  for 'org.eclipse.ui.edit.findNext',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService$HandlerSelectionFunction.compute(LegacyHandlerService.java:145)
+	at org.eclipse.e4.core.internal.contexts.ValueComputation.get(ValueComputation.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.internalGet(EclipseContext.java:271)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.get(EclipseContext.java:237)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.lookUpHandler(HandlerServiceImpl.java:103)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.handlerChanged(E4HandlerProxy.java:114)
+	at org.eclipse.core.commands.AbstractHandler.fireHandlerChanged(AbstractHandler.java:77)
+	at org.eclipse.jface.commands.ActionHandler.lambda$0(ActionHandler.java:81)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:52)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:75)
+	at org.eclipse.jface.action.Action.setEnabled(Action.java:541)
+	at org.eclipse.ui.texteditor.FindNextAction.update(FindNextAction.java:236)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateAction(AbstractTextEditor.java:5357)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateContentDependentActions(AbstractTextEditor.java:5441)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextListener.lambda$0(AbstractTextEditor.java:615)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3987)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3615)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:153)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 4 2022-03-18 17:03:44.835
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.findPrevious: {ActionHandler(org.eclipse.ui.texteditor.FindNextAction@32daccab)} vs {ActionHandler(org.eclipse.ui.texteditor.FindNextAction@32daccab)} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+!STACK 0
+java.lang.IllegalStateException: Conflicting handlers: {[ActionHandler(org.eclipse.ui.texteditor.FindNextAction@32daccab),  for 'org.eclipse.ui.edit.findPrevious',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} vs {[ActionHandler(org.eclipse.ui.texteditor.FindNextAction@32daccab),  for 'org.eclipse.ui.edit.findPrevious',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService$HandlerSelectionFunction.compute(LegacyHandlerService.java:145)
+	at org.eclipse.e4.core.internal.contexts.ValueComputation.get(ValueComputation.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.internalGet(EclipseContext.java:271)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.get(EclipseContext.java:237)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.lookUpHandler(HandlerServiceImpl.java:103)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.handlerChanged(E4HandlerProxy.java:114)
+	at org.eclipse.core.commands.AbstractHandler.fireHandlerChanged(AbstractHandler.java:77)
+	at org.eclipse.jface.commands.ActionHandler.lambda$0(ActionHandler.java:81)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:52)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:75)
+	at org.eclipse.jface.action.Action.setEnabled(Action.java:541)
+	at org.eclipse.ui.texteditor.FindNextAction.update(FindNextAction.java:236)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateAction(AbstractTextEditor.java:5357)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateContentDependentActions(AbstractTextEditor.java:5441)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextListener.lambda$0(AbstractTextEditor.java:615)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3987)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3615)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:153)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 4 2022-03-18 17:03:44.837
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.findIncremental: {ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@f0a6b04)} vs {ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@f0a6b04)} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+!STACK 0
+java.lang.IllegalStateException: Conflicting handlers: {[ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@f0a6b04),  for 'org.eclipse.ui.edit.findIncremental',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} vs {[ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@f0a6b04),  for 'org.eclipse.ui.edit.findIncremental',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService$HandlerSelectionFunction.compute(LegacyHandlerService.java:145)
+	at org.eclipse.e4.core.internal.contexts.ValueComputation.get(ValueComputation.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.internalGet(EclipseContext.java:271)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.get(EclipseContext.java:237)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.lookUpHandler(HandlerServiceImpl.java:103)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.handlerChanged(E4HandlerProxy.java:114)
+	at org.eclipse.core.commands.AbstractHandler.fireHandlerChanged(AbstractHandler.java:77)
+	at org.eclipse.jface.commands.ActionHandler.lambda$0(ActionHandler.java:81)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:52)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:75)
+	at org.eclipse.jface.action.Action.setEnabled(Action.java:541)
+	at org.eclipse.ui.texteditor.IncrementalFindAction.update(IncrementalFindAction.java:118)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateAction(AbstractTextEditor.java:5357)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateContentDependentActions(AbstractTextEditor.java:5441)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextListener.lambda$0(AbstractTextEditor.java:615)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3987)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3615)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:153)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.ui 4 4 2022-03-18 17:03:44.838
+!MESSAGE Conflicting handlers for org.eclipse.ui.edit.findIncrementalReverse: {ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@677480c8)} vs {ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@677480c8)} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+!STACK 0
+java.lang.IllegalStateException: Conflicting handlers: {[ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@677480c8),  for 'org.eclipse.ui.edit.findIncrementalReverse',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} vs {[ActionHandler(org.eclipse.ui.texteditor.IncrementalFindAction@677480c8),  for 'org.eclipse.ui.edit.findIncrementalReverse',  in PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext, activeWhen=ActivePartExpression(org.eclipse.mylyn.internal.wikitext.ui.editor.MarkupEditor@55feda3f), active=true, sourcePriority=1048576, participating=true]} in: PartImpl (org.eclipse.e4.ui.compatibility.editor)  removeOnHide org.eclipse.mylyn.wikitext.ui.editor.markupEditorContext
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService$HandlerSelectionFunction.compute(LegacyHandlerService.java:145)
+	at org.eclipse.e4.core.internal.contexts.ValueComputation.get(ValueComputation.java:70)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.internalGet(EclipseContext.java:271)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.get(EclipseContext.java:237)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.lookUpHandler(HandlerServiceImpl.java:103)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.handlerChanged(E4HandlerProxy.java:114)
+	at org.eclipse.core.commands.AbstractHandler.fireHandlerChanged(AbstractHandler.java:77)
+	at org.eclipse.jface.commands.ActionHandler.lambda$0(ActionHandler.java:81)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:52)
+	at org.eclipse.jface.action.AbstractAction.firePropertyChange(AbstractAction.java:75)
+	at org.eclipse.jface.action.Action.setEnabled(Action.java:541)
+	at org.eclipse.ui.texteditor.IncrementalFindAction.update(IncrementalFindAction.java:118)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateAction(AbstractTextEditor.java:5357)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.updateContentDependentActions(AbstractTextEditor.java:5441)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$TextListener.lambda$0(AbstractTextEditor.java:615)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3987)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3615)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:153)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-18 17:04:02.389
+!MESSAGE Indexed 'mtb_shared' (180 sources, 510 headers) in 20,6 sec: 99.867 declarations; 146.341 references; 311 unresolved inclusions; 2.145 syntax errors; 35.248 unresolved names (13%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-18 17:04:02.785
+!MESSAGE Indexed 'shake_psoc' (14 sources, 42 headers) in 0,376 sec: 1.225 declarations; 2.169 references; 34 unresolved inclusions; 24 syntax errors; 377 unresolved names (10%)
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:32:52.895
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:34:24.471
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:36:27.884
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:36:27.994
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:37:08.371
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:37:08.472
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:37:36.133
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:37:36.273
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:37:57.436
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3cb0a4fd): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:37:59.540
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@26c87907): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:38:23.085
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:38:23.184
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:39:04.212
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:39:04.312
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:39:15.343
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1ce6d2f2): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:39:47.950
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:39:48.049
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:40:00.433
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@188015cf): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:40:05.487
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6f5b8f0f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:40:09.230
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@10163670): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:40:26.976
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:40:27.075
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:40:56.281
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2ac59630): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:41:58.162
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:41:58.551
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:42:55.428
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:42:55.529
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:43:11.933
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@bb06784): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:44:03.937
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:44:04.037
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:44:15.395
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7f55b4d3): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:46:29.766
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:47:07.331
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:47:07.443
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:48:50.661
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:48:50.753
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag 4 0 2022-03-18 17:49:30.989
+!MESSAGE Debug session 'shake_psoc Debug (KitProg3_MiniProg4)' already started. Terminate the first one before restarting.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:49:50.144
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:49:50.246
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:51:15.246
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:51:15.346
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:52:01.808
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@71baf9e3): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 17:52:01.809
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@54a5a205): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:52:39.332
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 17:52:39.471
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:02:45.371
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:02:45.482
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:05:10.607
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2b8c1b3): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:05:10.608
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3d46d1d3): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2022-03-18 18:05:45.169
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:770)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Contains: Could not delete 'C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock'.
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:142)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:313)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:799)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1779)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:757)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Contains: Could not delete: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock.
+java.nio.file.FileSystemException: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock: The process cannot access the file because it is being used by another process.
+
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.base/java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:223)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:140)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:313)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:799)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1779)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:757)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2022-03-18 18:05:45.170
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2022-03-18 18:05:45.170
+!MESSAGE Could not delete 'C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Problems encountered while deleting files.
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:142)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:313)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:799)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1779)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:757)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Contains: Could not delete: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock.
+java.nio.file.FileSystemException: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock: The process cannot access the file because it is being used by another process.
+
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.base/java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:223)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:140)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:313)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:799)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1779)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:757)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2022-03-18 18:05:45.171
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2022-03-18 18:05:45.171
+!MESSAGE Could not delete: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock.
+!STACK 0
+java.nio.file.FileSystemException: C:\Users\vreys\OneDrive\school\shake_psoc\shake_psoc\libs\TARGET_CY8CKIT-062-WIFI-BT\COMPONENT_BSP_DESIGN_MODUS\design.modus.lock: The process cannot access the file because it is being used by another process.
+
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.base/java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:223)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:140)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:313)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:799)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1779)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:757)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:163)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:258)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:295)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:219)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:06:42.094
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@18964cc9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:06:42.095
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4904b816): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:06:42.574
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:06:42.683
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:06:52.625
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@797077bf): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:06:52.626
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6f3db7d9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:07:10.137
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:07:10.233
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:07:39.310
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:07:39.409
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:08:10.292
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@442bdf69): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:08:10.293
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1108a160): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:08:10.294
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5f017d00): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:08:46.770
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:08:46.895
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:09:31.735
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:09:31.838
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:53.986
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7aef07f7): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:53.986
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1eb15f59): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:53.987
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@75cc21bf): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:59.986
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3b925984): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:59.987
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5d522d53): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:09:59.988
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1051b86f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:10:16.175
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:10:16.270
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:10:29.636
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2622fd05): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:10:29.637
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@21eaf7cc): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:10:29.638
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@b0de1ff): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:10:47.902
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:10:48.014
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:11:02.377
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2baaa024): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:11:02.378
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3d41b3cc): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:11:02.379
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1cf0ba04): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:11:21.847
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:11:21.971
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:14.764
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6eff7acb): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:14.765
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5a8ef07): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:14.765
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@52e13719): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:14.766
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7d4679b4): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:12:33.064
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:12:33.164
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:49.095
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3678b5ac): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:49.096
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1c93493a): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:49.097
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@60ddf31b): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:12:49.098
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@44c33c4f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:13:08.240
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:13:08.336
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:13:22.479
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@c19e465): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:13:22.479
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@42a25da3): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:13:22.480
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@61a72e11): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:13:22.481
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@73ea5548): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:13:39.892
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:13:39.998
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:28:34.813
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:28:34.915
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.246
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@54c2171b): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.247
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2b4a6d5f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.248
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5e6331ba): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.248
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@143ff757): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.886
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@524e28b6): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.887
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3a0b220f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.887
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2474e6cb): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:28:44.888
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@38d1026e): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:29:30.474
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:29:30.572
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 2 2 2022-03-18 18:30:22.002
+!MESSAGE Invalid preference category path: org.eclipse.mylyn.preferencePages.Mylyn (bundle: org.eclipse.mylyn.context.ui, page: org.eclipse.mylyn.context.ui.preferences)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:17.510
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@55ed46a): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:17.511
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1861a2e8): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:17.511
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@606ba295): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:17.512
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4999c91a): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:17.513
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@36f5580d): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:18.447
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@f71836a): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:18.448
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7e67eb70): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:18.449
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2bc21d78): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:18.450
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@32f83861): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:18.450
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1a9935b9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:20.547
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@489b4e7e): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:20.548
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1a843407): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:20.549
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3f3af0d9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:20.550
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@51bbc073): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:20.550
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4931d278): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.166
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5250382b): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.167
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@12adcfd6): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.168
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@989b7b9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.169
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@163e26ef): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.169
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4972d28d): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.892
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@166dd3f0): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.893
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@625b1a0): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.894
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1bbc436): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.894
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1582b935): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:21.895
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@23fa8c05): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:23.226
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@26459aa): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:23.227
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@f2b4f19): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:23.228
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2f37ef93): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:23.229
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1c6eccdd): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:31:23.229
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4b333042): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:32:05.365
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:32:05.461
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:32:09.080
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@fd80528): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:32:09.081
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4f377e79): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:32:09.081
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6e3c303f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:32:09.082
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3724b5b1): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:32:09.082
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6eedb855): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:36:19.843
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:36:19.958
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:39:44.464
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:39:44.563
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:46:01.689
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:46:01.800
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:46:15.869
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1515ddef): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:46:15.870
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@120a6360): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:46:15.870
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6ac9845): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:46:15.871
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6dec57de): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:46:15.871
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@588ba190): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:50:49.298
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:50:49.399
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:13.203
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1018aa8b): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:13.204
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@256dc889): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:13.204
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@14f2499): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:13.205
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@abbafc8): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:13.206
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4b07ad0d): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:14.692
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2dcb243): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:14.692
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2ed9f2c7): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:14.693
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7157a08): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:14.694
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@60b93857): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 18:51:14.694
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@651dd2ad): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:51:46.621
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:55:07.539
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:55:07.644
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 18:58:10.117
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:08:32.957
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:08:33.067
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:12:49.146
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:13:57.941
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:13:58.064
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:23:15.697
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:23:15.825
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:56:25.241
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:56:25.341
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:57:23.744
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:57:23.841
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:57:53.246
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 19:57:53.342
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:00:01.642
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:00:01.752
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:00:47.947
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:00:48.050
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:01:53.111
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:01:53.247
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.219
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2fbe56f9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.220
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4dabc426): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.221
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@27937520): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.221
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3b46820f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.222
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3551bd83): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.222
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@21869120): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-03-18 20:02:10.223
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4bc6ae07): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:02:27.481
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:02:27.625
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:04:07.429
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:04:07.553
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:04:52.267
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:14:58.909
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:14:59.033
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:19:44.020
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:19:44.139
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:27:23.745
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:27:23.848
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:28:51.167
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:33:10.731
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:33:10.861
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:39:27.511
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 20:39:28.215
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 21:02:07.528
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 21:02:08.407
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 21:06:38.724
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 22:19:57.333
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 22:19:57.451
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 22:59:51.995
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 22:59:52.109
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 23:03:40.016
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-18 23:03:40.126
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:01:42.148
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:01:42.380
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:01:42.494
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c puts stderr {Started by GNU MCU Eclipse} -c source [find target/psoc6.cfg] -c psoc6.cpu.cm4 configure -rtos auto -rtos-wipe-on-reset-halt 1 -c gdb_port 3332 -c psoc6 sflash_restrictions 1 -c init; reset init -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:01:42.639
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/gcc/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 5012 2022-03-19 10:01:47.699
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+localhost:3333: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launchDebugSession(LaunchConfigurationDelegate.java:448)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launchDebugger(LaunchConfigurationDelegate.java:174)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launch(LaunchConfigurationDelegate.java:150)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+localhost:3333: No connection could be made because the target machine actively refused it.
+java.lang.Exception: localhost:3333: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2022-03-19 10:01:47.700
+!MESSAGE Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+localhost:3333: No connection could be made because the target machine actively refused it.
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2022-03-19 10:01:47.700
+!MESSAGE Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+localhost:3333: No connection could be made because the target machine actively refused it.
+!STACK 0
+java.lang.Exception: localhost:3333: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 5012 2022-03-19 10:02:01.461
+!MESSAGE Error in final launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launchDebugSession(LaunchConfigurationDelegate.java:448)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launchDebugger(LaunchConfigurationDelegate.java:174)
+	at ilg.gnumcueclipse.debug.gdbjtag.openocd.dsf.LaunchConfigurationDelegate.launch(LaunchConfigurationDelegate.java:150)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+java.lang.Exception: Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10004 2022-03-19 10:02:01.462
+!MESSAGE Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+!SUBENTRY 2 org.eclipse.cdt.dsf.gdb 4 10004 2022-03-19 10:02:01.462
+!MESSAGE Failed to execute MI command:
+-target-select remote localhost:3333
+Error message from debugger back end:
+Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+!STACK 0
+java.lang.Exception: Remote communication error.  Target disconnected.: No connection could be made because the target machine actively refused it.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:09:06.785
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:11:56.471
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:13:14.671
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-19 10:20:22.183
+!MESSAGE Indexed 'Empty_PSoC6_App' (22 sources, 84 headers) in 0,892 sec: 3.107 declarations; 4.886 references; 102 unresolved inclusions; 27 syntax errors; 938 unresolved names (11%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-19 10:33:57.426
+!MESSAGE Indexed 'shake_psoc' (15 sources, 328 headers) in 6,26 sec: 28.408 declarations; 41.286 references; 18 unresolved inclusions; 6 syntax errors; 45 unresolved names (0,065%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-19 10:35:32.231
+!MESSAGE Indexed 'mtb_shared' (624 sources, 1.194 headers) in 33,9 sec: 160.746 declarations; 480.036 references; 1.043 unresolved inclusions; 2.452 syntax errors; 54.412 unresolved names (7,8%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-03-19 10:35:32.630
+!MESSAGE Indexed 'Empty_PSoC6_App' (22 sources, 84 headers) in 0,397 sec: 3.107 declarations; 4.886 references; 102 unresolved inclusions; 27 syntax errors; 938 unresolved names (11%)
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 10:59:57.942
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:05:54.131
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:39:45.157
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:49:13.196
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:52:45.536
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:56:08.237
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 11:57:55.441
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 12:55:14.663
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 12:57:12.056
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 12:58:57.869
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 13:50:52.309
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 13:55:00.229
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 14:00:35.748
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 14:09:26.186
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 14:11:33.307
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY ilg.gnumcueclipse.debug.gdbjtag.openocd 4 1 2022-03-19 14:18:05.599
+!MESSAGE C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -s C:/Users/vreys/ModusToolbox/tools_2.3/openocd/bin/../scripts -s ./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource -c source [find interface/kitprog3.cfg] -c source [find target/psoc6.cfg] -c psoc6 sflash_restrictions 1 -c if [catch {program C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/mtb-example-psoc6-empty-app.hex} ] { echo {** Program operation failed **} } else { echo {** Program operation completed successfully **} } -c reset_config srst_only;reset run;psoc6.dap dpreg 0x04 0x00;shutdown -c echo "Started by GNU MCU Eclipse"
+!SESSION 2022-03-19 14:42:22.557 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.mylyn.commons.notifications.feed 4 0 2022-03-19 14:42:25.784
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.commons.notifications.feed [271]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.tasks.ui 4 0 2022-03-19 14:42:25.788
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.tasks.ui [288]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+       org.eclipse.mylyn.commons.notifications.feed [271]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.mylyn.wikitext.tasks.ui 4 0 2022-03-19 14:42:25.789
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.mylyn.wikitext.tasks.ui [303]
+  Unresolved requirement: Require-Bundle: org.eclipse.mylyn.tasks.ui; bundle-version="3.7.0"
+    -> Bundle-SymbolicName: org.eclipse.mylyn.tasks.ui; bundle-version="3.25.2.v20200814-0512"; singleton:="true"
+       org.eclipse.mylyn.tasks.ui [288]
+         Unresolved requirement: Require-Bundle: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.0.0"
+           -> Bundle-SymbolicName: org.eclipse.mylyn.commons.notifications.feed; bundle-version="1.17.2.v20200813-0821"; singleton:="true"
+              org.eclipse.mylyn.commons.notifications.feed [271]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"] because it is exposed to package 'javax.xml.bind' from resources javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"] and jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle: javax.xml.bind
+  javax.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.2.0.v201105210648"; osgi.identity="javax.xml.bind"]
+
+Chain 2:
+  org.eclipse.mylyn.commons.notifications.feed [osgi.identity; type="osgi.bundle"; version:Version="1.17.2.v20200813-0821"; osgi.identity="org.eclipse.mylyn.commons.notifications.feed"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=com.sun.xml.bind)(bundle-version>=2.2.0))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="2.3.3.v20201118-1818"; osgi.wiring.bundle="com.sun.xml.bind"
+  com.sun.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="com.sun.xml.bind"]
+    import: (&(osgi.wiring.package=javax.xml.bind)(&(version>=2.3.3)(!(version>=2.3.4))))
+     |
+    export: osgi.wiring.package: javax.xml.bind
+  jakarta.xml.bind [osgi.identity; type="osgi.bundle"; version:Version="2.3.3.v20201118-1818"; osgi.identity="jakarta.xml.bind"]
+	at org.eclipse.osgi.container.Module.start(Module.java:463)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1845)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1838)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1779)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1665)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-03-19 14:42:47.981
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\vreys'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
