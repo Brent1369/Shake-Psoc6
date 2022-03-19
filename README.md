@@ -20,8 +20,8 @@ The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register 
 For this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code 
 ![image](./ifdef.png)  
 if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
-![image](./commented.png)![image](./uncommented.png) 
-
+![image](./commented.png)![image](./uncommented.png)  
+If your accelerometer values are higher then 100 while the psoc is sitting still(you are not shaking it) then you need to comment or remove the  #define bmi160SwitchAdresses 1
 ## Example
 
 https://user-images.githubusercontent.com/69217508/159126515-e50976c9-af8f-44a0-b190-e4efb69d2e54.MOV
