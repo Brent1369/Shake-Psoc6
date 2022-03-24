@@ -51,6 +51,7 @@
 
 #define bmi160SwitchAdresses 1
 
+#define sensitivity 50
 #define WIFI_SSID                         "telenet-A6AD7E7"
 #define WIFI_PASSWORD                     "vzemhjvX4arp"
 

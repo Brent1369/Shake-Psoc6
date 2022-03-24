@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{0a4da14f-b9f9-421a-8fd7-545aecd960c8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbUdpCreate 			: FB_SocketUdpCreate;
+	fbSocketSend  			: FB_SocketUdpSendTo;
+	fbSocketReceive 		: FB_SocketUdpReceiveFrom;
+	fbSocketClose			: FB_SocketClose;
+	fbCloseAll				: FB_SocketCloseAll;	
+
+	sLocalHost				: T_IPv4Addr 	:= '192.168.0.253';(* Local address: String containing an (Ipv4) Internet Protocol dotted address. *)
+	nLocalPort				: UDINT			:= 24042;(* Local address: IP port number. *)
+	sRemoteHost				: T_IPv4Addr 	:= '192.168.0.101';(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
+	nRemotePort				: UDINT 		:= 62510;(* Remote address: IP port number. *)
+	nNumberSend 			: UDINT    		:= 2;
+	nNumberReceive			: UDINT    		:= 0;
+	
+	bInitialize				: BOOL := TRUE;
+	bUdpCreated				: BOOL;
+	nState 					: INT;
+	bEnable 				: BOOL 	:= TRUE;
+	nErrorId    : UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbCloseAll( bExecute:= bInitialize);
+IF fbCloseAll.bBusy OR fbCloseAll.bError THEN
+	nErrorId := fbCloseAll.nErrId;
+	RETURN;
+END_IF
+bInitialize := FALSE;
+
+//fbUdpCreate(nLocalPort := nLocalPort, sLocalHost := sLocalHost, bExecute := TRUE );
+
+//fbSocketSend(nRemotePort := nRemotePort,  sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumber), pSrc := ADR(nNumber), bExecute := TRUE);
+
+
+CASE nState OF
+0:
+	IF bEnable THEN
+		bUdpCreated := FALSE;
+		//bMulticastAdded := FALSE;
+		nState := 1;
+	END_IF
+1:
+	fbUdpCreate( bExecute := FALSE );
+	fbUdpCreate( nLocalPort := nLocalPort, sLocalHost := sLocalHost, bExecute := TRUE );
+	nState := 2;
+2:
+	fbUdpCreate( bExecute:=FALSE );
+	IF NOT fbUdpCreate.bBusy THEN
+		IF NOT fbUdpCreate.bError THEN
+			bUdpCreated := TRUE;
+			//fbSocketAddMulticast( bExecute := FALSE );
+			//fbSocketAddMulticast( hSocket := fbUdpCreate.hSocket, sMulticastAddr := sMulticastAddr, bExecute := TRUE );
+			nState := 3;
+		ELSE
+			nState := 100;
+		END_IF
+	END_IF
+3:
+	//fbSocketAddMulticast( bExecute := FALSE );
+	//IF NOT fbSocketAddMulticast.bBusy THEN
+		//IF NOT fbSocketAddMulticast.bError THEN
+			//bMulticastAdded := TRUE;
+			nState := 4;
+	//	ELSE
+		//	nState := 100;
+//		END_IF
+//	END_IF
+	
+4:
+	IF bEnable THEN
+		//nCounterOut := nCounterOut + 1;
+		fbSocketSend( bExecute := FALSE );
+		fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberSend), pSrc := ADR(nNumberSend), bExecute := TRUE );
+		nState := 5;
+	ELSE
+		nState := 10;
+	END_IF
+5:
+	fbSocketSend( bExecute := FALSE );
+	IF NOT fbSocketSend.bBusy THEN
+		IF NOT fbSocketSend.bError THEN
+			fbSocketReceive( bExecute := FALSE );
+			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberReceive), pDest := ADR(nNumberReceive), bExecute := TRUE );
+			nState := 6;
+		ELSE
+ 			nState := 100;
+		END_IF
+	END_IF
+6:	
+	fbSocketReceive( bExecute := FALSE );
+	IF NOT fbSocketReceive.bBusy THEN
+		IF NOT fbSocketReceive.bError THEN
+			nState := 4;
+		ELSE
+			nState := 100;
+		END_IF
+	END_IF
+
+10:
+	//fbSocketDropMulticast( bExecute := FALSE );
+	//fbSocketDropMulticast( hSocket := fbUdpCreate.hSocket, sMulticastAddr := sMulticastAddr, bExecute := TRUE );
+	nState := 11;
+11:
+	//fbSocketDropMulticast( bExecute := FALSE );
+	//IF NOT fbSocketDropMulticast.bBusy THEN
+		//bMulticastAdded := FALSE;
+		//IF NOT fbSocketDropMulticast.bError THEN
+		//	nState := 20;
+		//ELSE
+			//nState := 100;
+	//	END_IF
+	//END_IF
+
+20:	
+	fbSocketClose( bExecute := FALSE );
+	fbSocketClose( hSocket := fbUdpCreate.hSocket, bExecute := TRUE );
+	nState := 21;
+21:	
+	fbSocketClose( bExecute := FALSE );
+	IF NOT fbSocketClose.bBusy THEN
+		bUdpCreated := FALSE;
+		IF NOT fbSocketClose.bError THEN
+			nState := 0;	
+		ELSE
+			nState := 100;	
+		END_IF
+	END_IF
+	
+100:
+	//IF bMulticastAdded THEN
+		//nState := 10;
+	IF bUdpCreated THEN
+		nState := 20;
+	ELSE
+		nState := 0;
+	END_IF
+
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="26" Count="1" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="32" Count="104" />
+      <LineId Id="31" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

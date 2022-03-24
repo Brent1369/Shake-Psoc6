@@ -215,10 +215,16 @@ void udp_client_task(void *arg)
 
             int accelArray[100] = {0};
             char accelString[20] = {0};
-            int accel=0;
+            int shake=0;
+
+
+            int dataGyroX = 1;
+            int dataGyroY = 1;
+            int dataGyroZ = 1;
+
 		    for(int j=0; j<led_state_ack; j++){
 
-			    for(int i=0; i<10; i++){
+			    for(int i=0; i<100; i++){
 
 				   mtb_bmi160_data_t data;
 				   mtb_bmi160_read(&motion_sensor, &data);
@@ -227,11 +233,44 @@ void udp_client_task(void *arg)
 				   printf("Gyro : X:%6d Y:%6d Z:%6d\n\n", data.gyro.x, data.gyro.y, data.gyro.z);
 
 #ifdef bmi160SwitchAdresses
-				   data.gyro.x = (data.gyro.x <=0)? -data.gyro.x : data.gyro.x;
-				   data.gyro.y = (data.gyro.y <=0)? -data.gyro.y : data.gyro.y;
-				   data.gyro.z = (data.gyro.z <=0)? -data.gyro.z : data.gyro.z;
+				   //x
+				   if(dataGyroX==1){
+					   if(data.gyro.x <= -sensitivity){
+						   shake++;
+						   dataGyroX=-1;
+					   }
+				   }else{
+					   if(data.gyro.x >= sensitivity){
+						   shake++;
+						   dataGyroX=1;
+					   }
+				   }
+				   //y
+				   if(dataGyroY==1){
+					   if(data.gyro.y <= -sensitivity){
+						   shake++;
+						   dataGyroY=-1;
+					   }
+				   }else{
+					   if(data.gyro.y >= sensitivity){
+						   shake++;
+						   dataGyroY=1;
+					   }
+				   }
+				   //z
+				   if(dataGyroZ==1){
+					   if(data.gyro.z <= -sensitivity){
+						   shake++;
+						   dataGyroZ=-1;
+					   }
+				   }else{
+					   if(data.gyro.z >= sensitivity){
+						   shake++;
+						   dataGyroZ=1;
+					   }
+				   }
 
-				   accelArray[j]+= data.gyro.x + data.gyro.y + data.gyro.z;
+
 #else
 
 				   data.accel.x = (data.accel.x <=0)? -data.accel.x : data.accel.x;
@@ -241,16 +280,15 @@ void udp_client_task(void *arg)
 				   accelArray[j]+= data.accel.x + data.accel.y + data.accel.z;
 
 #endif
-				   cyhal_system_delay_ms(100);
+				   cyhal_system_delay_ms(10);
 				}
 
-			  accelArray[j]/=10;
-			  accel+=accelArray[j];
-		    }
-		    accel/=led_state_ack;
-			printf("Accel total = %d\n", accel);
 
-			sprintf(accelString, "%d", accel);
+		    }
+
+			printf("Accel total = %d\n", shake);
+
+			sprintf(accelString, "%d", shake);
 
             result = cy_socket_sendto(client_handle, &accelString, strlen(accelString), CY_SOCKET_FLAGS_NONE,
                                         &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
