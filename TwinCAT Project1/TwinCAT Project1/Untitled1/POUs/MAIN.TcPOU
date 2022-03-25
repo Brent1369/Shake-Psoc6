@@ -13,7 +13,7 @@ VAR
 	nLocalPort				: UDINT			:= 24042;(* Local address: IP port number. *)
 	sRemoteHost				: T_IPv4Addr 	:= '192.168.0.101';(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
 	nRemotePort				: UDINT 		:= 62510;(* Remote address: IP port number. *)
-	nNumberSend 			: UDINT    		:= 2;
+	nNumberSend 			: UDINT    		:= 1;
 	nNumberReceive			: UDINT    		:= 0;
 	
 	bInitialize				: BOOL := TRUE;
@@ -21,6 +21,7 @@ VAR
 	nState 					: INT;
 	bEnable 				: BOOL 	:= TRUE;
 	nErrorId    : UDINT;
+	fbCreateTimer	: TON := ( PT := T#5S);
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -84,7 +85,7 @@ CASE nState OF
 	IF NOT fbSocketSend.bBusy THEN
 		IF NOT fbSocketSend.bError THEN
 			fbSocketReceive( bExecute := FALSE );
-			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberReceive), pDest := ADR(nNumberReceive), bExecute := TRUE );
+			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberReceive), pDest := ADR(nNumberReceive), bExecute := TRUE , tTimeout := T#10S);
 			nState := 6;
 		ELSE
  			nState := 100;
@@ -94,16 +95,23 @@ CASE nState OF
 	fbSocketReceive( bExecute := FALSE );
 	IF NOT fbSocketReceive.bBusy THEN
 		IF NOT fbSocketReceive.bError THEN
-			nState := 4;
+			nState := 10;
+			
+			//fbCreateTimer( IN := FALSE, PT := T#5S );
 		ELSE
 			nState := 100;
 		END_IF
 	END_IF
 
 10:
+	fbCreateTimer( IN := TRUE);
+	IF fbCreateTimer.Q THEN
+		fbCreateTimer( IN := FALSE);
+		nState := 4;
+	END_IF
 	//fbSocketDropMulticast( bExecute := FALSE );
 	//fbSocketDropMulticast( hSocket := fbUdpCreate.hSocket, sMulticastAddr := sMulticastAddr, bExecute := TRUE );
-	nState := 11;
+
 11:
 	//fbSocketDropMulticast( bExecute := FALSE );
 	//IF NOT fbSocketDropMulticast.bBusy THEN
@@ -149,7 +157,15 @@ END_CASE]]></ST>
       <LineId Id="2" Count="0" />
       <LineId Id="11" Count="0" />
       <LineId Id="10" Count="0" />
-      <LineId Id="32" Count="104" />
+      <LineId Id="32" Count="60" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="93" Count="5" />
+      <LineId Id="172" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="173" Count="0" />
+      <LineId Id="166" Count="1" />
+      <LineId Id="99" Count="37" />
       <LineId Id="31" Count="0" />
     </LineIds>
   </POU>
