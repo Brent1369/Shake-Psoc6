@@ -29,7 +29,7 @@ There always needs to be one player 1 and one player 2, otherwhise the Game will
 ![image](https://user-images.githubusercontent.com/69217508/160469113-a9eb9095-989c-4614-9603-6a9c9bec604f.png) 
 
 The sensitivity of how big the accelerometer value needs to be in order to count as a "shake"  
-Lower value = higher sensitivity, higher value = lower sensitivity.
+Lower value = higher sensitivity, higher value = lower sensitivity.  
 ![image](https://user-images.githubusercontent.com/69217508/160471473-891d55db-cd98-45d6-9dc1-4531be45bd4d.png)
 
 
