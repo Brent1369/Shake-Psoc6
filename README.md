@@ -43,6 +43,9 @@ If your PLAYER 1/PLAYER 2 values are going up while the psoc is sitting still(yo
 ## Example
 
 Since i only have 1 Psoc i used packetsender to send 100(player 2)  
-https://user-images.githubusercontent.com/69217508/160462657-275ae4d2-4bfa-4ece-b2f9-e2c153e6f753.MOV
+
+
+https://user-images.githubusercontent.com/69217508/160485270-83eecd9a-2db2-4753-b521-ad96d422e80d.MOV
+
 
 
