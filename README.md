@@ -13,9 +13,9 @@ Player 2 sends to port 24043
 
 ## How to use
 in Twincat:  
-change sLocalHost to the ip of the PLC. in MAIN 
+change sLocalHost to the ip of the PLC.
 ![image](https://user-images.githubusercontent.com/69217508/160467118-beb13334-0497-4a65-b301-0d5519010abd.png)
-optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner. in GVL   
+optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner.  
 PS: g_nShake1 and g_nShake2 are the shake values of the Psocs. This can be used to control something like a LED array.
 ![image](https://user-images.githubusercontent.com/69217508/160467286-f3497263-82cb-4ca5-9738-9ee7152e225d.png)
 
