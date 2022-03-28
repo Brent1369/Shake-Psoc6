@@ -42,7 +42,7 @@ if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
 If your PLAYER 1/PLAYER 2 values are going up while the psoc is sitting still(you are not shaking it) then you likely do have the BMI160 and you need to comment or remove the  #define bmi160SwitchAdresses 1
 ## Example
 
-Since i only have 1 Psoc i used packetsender to send 100(player 2)
+Since i only have 1 Psoc i used packetsender to send 100(player 2)  
 https://user-images.githubusercontent.com/69217508/160462657-275ae4d2-4bfa-4ece-b2f9-e2c153e6f753.MOV
 
 
