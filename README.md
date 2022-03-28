@@ -6,7 +6,8 @@ In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the ac
 
 when the Psoc starts it will send 'A' to the server(or any device you want to connect to the Psoc). when both players are connected the start button can be pressed to start the game. The PLC will then send an 'S' to the Psocs and the psocs will start measuring how much they are being shaken.
   
-The PLC then cyclically sends 'B' to the psoc and the psoc will send its current shake value back. When the PLC decides the winner it will send a 'L' to the loser psoc and a 'W' to the winning psoc and the visualization from the PLC will declare the winner. The button can then be pressed in order to start another game.
+The PLC then cyclically sends 'B' to the psoc and the psoc will send its current shake value back. When the PLC decides the winner it will send a 'L' to the loser psoc and a 'W' to the winning psoc and the visualization from the PLC will declare the winner. The button can then be pressed in order to start another game.  
+I have tried to display the Winner on the psoc screens themselves, but with GUI_init() and any form of delay, the program would stop working for some reason.
 
 Player 1 sends to port 24042  
 Player 2 sends to port 24043  
