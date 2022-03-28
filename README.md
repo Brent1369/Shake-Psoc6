@@ -15,28 +15,28 @@ Player 2 sends to port 24043
 in Twincat:  
 change sLocalHost to the ip of the PLC. in MAIN 
 ![image](https://user-images.githubusercontent.com/69217508/160467118-beb13334-0497-4a65-b301-0d5519010abd.png)
-optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner. in GVL 
+optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner. in GVL   
 PS: g_nShake1 and g_nShake2 are the shake values of the Psocs. This can be used to control something like a LED array.
 ![image](https://user-images.githubusercontent.com/69217508/160467286-f3497263-82cb-4ca5-9738-9ee7152e225d.png)
 
 Change WIFI_SSID and WIFI_PASSWORD to the name and password of your wifi network in udp_client.h  
 ![image](./images/wifi.png)   
 
-Change UDP_SERVER_IP_ADDRESS and UDP_SERVER_PORT to the ip and port of your server in udp_client.h   
-![image](./images/server.png)  
+Change UDP_SERVER_IP_ADDRESS to the ip of the PLC.  
+comment out one of the server ports to set the psoc as player one or two.  
+There always needs to be one player 1 and one player 2, otherwhise the Game will not work correctly.
+![image](https://user-images.githubusercontent.com/69217508/160469113-a9eb9095-989c-4614-9603-6a9c9bec604f.png) 
 
 ### Wrong sensor type
 The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround. Like the adresses of a BMI270.  
-For this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code 
-![image](./images/ifdef.png)  
+For this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code.   
+  
 if you have the BMI160 just comment out the #define bmi160SwitchAdresses 1
 ![image](./images/commented.png)![image](./images/uncommented.png)  
-If your accelerometer values are higher then 100 while the psoc is sitting still(you are not shaking it) then you likely do have the BMI160 and you need to comment or remove the  #define bmi160SwitchAdresses 1
+If your PLAYER 1/PLAYER 2 values are going up while the psoc is sitting still(you are not shaking it) then you likely do have the BMI160 and you need to comment or remove the  #define bmi160SwitchAdresses 1
 ## Example
 
-
-
-
+Since i only have 1 Psoc i used packetsender to send 100(player 2)
 https://user-images.githubusercontent.com/69217508/160462657-275ae4d2-4bfa-4ece-b2f9-e2c153e6f753.MOV
 
 
