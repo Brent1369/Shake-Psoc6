@@ -262,7 +262,16 @@ C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/D
  ../mtb_shared/freertos/release-v10.4.302/Source/include/task.h \
  ../mtb_shared/sensor-motion-bmi160/release-v1.1.1/mtb_bmi160.h \
  ../mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160.h \
- ../mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160_defs.h
+ ../mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160_defs.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_ConfDefaults.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP/COMPONENT_EMWIN_NOSNTS/GUIConf.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Type.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/LCD.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/Global.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Version.h \
+ ../mtb_shared/display-tft-st7789v/release-v1.0.1/mtb_st7789v.h \
+ ../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft_pins.h
 
 ../mtb_shared/mtb-hal-cat1/release-v1.6.0/include/cyhal.h:
 
@@ -791,3 +800,21 @@ udp_client.h:
 ../mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160.h:
 
 ../mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160_defs.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_ConfDefaults.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP/COMPONENT_EMWIN_NOSNTS/GUIConf.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Type.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/LCD.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/Global.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Version.h:
+
+../mtb_shared/display-tft-st7789v/release-v1.0.1/mtb_st7789v.h:
+
+../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft_pins.h:

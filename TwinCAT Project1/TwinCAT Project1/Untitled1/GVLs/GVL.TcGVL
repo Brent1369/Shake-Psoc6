@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <GVL Name="GVL" Id="{85f454e5-da98-470b-88f4-f22be1093cb5}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	g_bStart    AT %I* : BOOL;
+	g_nConnected : INT;
+	g_sWinner : STRING;
+	
+	g_nShake1      : INT;
+	g_nShake2    : INT;
+	g_nShakeWin 				:INT := 500;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

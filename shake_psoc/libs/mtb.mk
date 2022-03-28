@@ -6,11 +6,15 @@
 SEARCH_TARGET_CY8CKIT-062-WIFI-BT=./libs/TARGET_CY8CKIT-062-WIFI-BT
 
 # List of shared libraries 
+SEARCH_CY8CKIT-028-TFT=../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0
+SEARCH_display-tft-st7789v=../mtb_shared/display-tft-st7789v/release-v1.0.1
+SEARCH_emwin=../mtb_shared/emwin/release-v5.48.1
 SEARCH_retarget-io=../mtb_shared/retarget-io/release-v1.3.0
 SEARCH_sensor-motion-bmi160=../mtb_shared/sensor-motion-bmi160/release-v1.1.1
 SEARCH_wifi-connection-manager=../mtb_shared/wifi-connection-manager/release-v2.2.0
 SEARCH_BMI160_driver=../mtb_shared/BMI160_driver/bmi160_v3.9.1
 SEARCH_abstraction-rtos=../mtb_shared/abstraction-rtos/release-v1.5.0
+SEARCH_audio-codec-ak4954a=../mtb_shared/audio-codec-ak4954a/release-v1.0.1
 SEARCH_capsense=../mtb_shared/capsense/release-v2.10.0
 SEARCH_clib-support=../mtb_shared/clib-support/release-v1.2.0
 SEARCH_connectivity-utilities=../mtb_shared/connectivity-utilities/release-v3.2.0
@@ -24,17 +28,22 @@ SEARCH_mtb-pdl-cat1=../mtb_shared/mtb-pdl-cat1/release-v2.3.1
 SEARCH_psoc6cm0p=../mtb_shared/psoc6cm0p/release-v2.1.4
 SEARCH_recipe-make-cat1a=../mtb_shared/recipe-make-cat1a/release-v1.9.0
 SEARCH_secure-sockets=../mtb_shared/secure-sockets/release-v2.5.0
+SEARCH_sensor-light=../mtb_shared/sensor-light/release-v1.1.0
 SEARCH_udb-sdio-whd=../mtb_shared/udb-sdio-whd/release-v1.1.1
 SEARCH_whd-bsp-integration=../mtb_shared/whd-bsp-integration/release-v2.0.0
 SEARCH_wifi-host-driver=../mtb_shared/wifi-host-driver/release-v2.2.0
 SEARCH_wifi-mw-core=../mtb_shared/wifi-mw-core/release-v3.3.0
 
 # Shared libraries added to build 
+SEARCH+=$(SEARCH_CY8CKIT-028-TFT)
+SEARCH+=$(SEARCH_display-tft-st7789v)
+SEARCH+=$(SEARCH_emwin)
 SEARCH+=$(SEARCH_retarget-io)
 SEARCH+=$(SEARCH_sensor-motion-bmi160)
 SEARCH+=$(SEARCH_wifi-connection-manager)
 SEARCH+=$(SEARCH_BMI160_driver)
 SEARCH+=$(SEARCH_abstraction-rtos)
+SEARCH+=$(SEARCH_audio-codec-ak4954a)
 SEARCH+=$(SEARCH_capsense)
 SEARCH+=$(SEARCH_clib-support)
 SEARCH+=$(SEARCH_connectivity-utilities)
@@ -48,6 +57,7 @@ SEARCH+=$(SEARCH_mtb-pdl-cat1)
 SEARCH+=$(SEARCH_psoc6cm0p)
 SEARCH+=$(SEARCH_recipe-make-cat1a)
 SEARCH+=$(SEARCH_secure-sockets)
+SEARCH+=$(SEARCH_sensor-light)
 SEARCH+=$(SEARCH_udb-sdio-whd)
 SEARCH+=$(SEARCH_whd-bsp-integration)
 SEARCH+=$(SEARCH_wifi-host-driver)

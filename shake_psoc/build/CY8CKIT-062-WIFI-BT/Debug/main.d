@@ -264,7 +264,20 @@ C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/D
  ../mtb_shared/connectivity-utilities/release-v3.2.0/cy_log/cy_log.h \
  udp_client.h \
  ../mtb_shared/freertos/release-v10.4.302/Source/include/queue.h \
- ../mtb_shared/freertos/release-v10.4.302/Source/include/task.h
+ ../mtb_shared/freertos/release-v10.4.302/Source/include/task.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_ConfDefaults.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP/COMPONENT_EMWIN_NOSNTS/GUIConf.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Type.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/LCD.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/Global.h \
+ ../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Version.h \
+ ../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft.h \
+ ../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft_pins.h \
+ ../mtb_shared/audio-codec-ak4954a/release-v1.0.1/mtb_ak4954a.h \
+ ../mtb_shared/sensor-light/release-v1.1.0/mtb_light_sensor.h \
+ ../mtb_shared/display-tft-st7789v/release-v1.0.1/mtb_st7789v.h \
+ ../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy_tft.h
 
 ../mtb_shared/mtb-pdl-cat1/release-v2.3.1/devices/COMPONENT_CAT1A/include/cy_pdl.h:
 
@@ -795,3 +808,29 @@ udp_client.h:
 ../mtb_shared/freertos/release-v10.4.302/Source/include/queue.h:
 
 ../mtb_shared/freertos/release-v10.4.302/Source/include/task.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_ConfDefaults.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP/COMPONENT_EMWIN_NOSNTS/GUIConf.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Type.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/LCD.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/Global.h:
+
+../mtb_shared/emwin/release-v5.48.1/GUI/Include/GUI_Version.h:
+
+../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft.h:
+
+../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft_pins.h:
+
+../mtb_shared/audio-codec-ak4954a/release-v1.0.1/mtb_ak4954a.h:
+
+../mtb_shared/sensor-light/release-v1.1.0/mtb_light_sensor.h:
+
+../mtb_shared/display-tft-st7789v/release-v1.0.1/mtb_st7789v.h:
+
+../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy_tft.h:

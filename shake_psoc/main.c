@@ -54,7 +54,11 @@
 #include <time.h>
 #include "cy_log.h"
 #include "udp_client.h"
+#include "GUI.h"
+//#include "mtb_st7789v.h"
+//#include "cy8ckit_028_tft_pins.h"
 
+#include "cy8ckit_028_tft.h"
 
 
 TaskHandle_t udp_client_task_handle;
@@ -91,7 +95,7 @@ int main(void)
     printf("============================================================\n\n");
 
 
-    xTaskCreate(udp_client_task, "udp_client_task", 10*1024, NULL, 5, &udp_client_task_handle);
+    xTaskCreate(udp_client_task, "udp_client_task", 4*1024, NULL, 5, &udp_client_task_handle);
 	/* Start the FreeRTOS scheduler. */
 	vTaskStartScheduler();
 

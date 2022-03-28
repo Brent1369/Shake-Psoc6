@@ -58,6 +58,9 @@
 #include "udp_client.h"
 #include "mtb_bmi160.h"
 
+#include "GUI.h"
+#include "mtb_st7789v.h"
+#include "cy8ckit_028_tft_pins.h"
 /*******************************************************************************
 * Macros
 ********************************************************************************/
@@ -82,6 +85,23 @@
 
 #define IMU_I2C_SDA (P6_1)
 #define IMU_I2C_SCL (P6_0)
+
+const mtb_st7789v_pins_t tft_pins =
+{
+    .db08 = CY8CKIT_028_TFT_PIN_DISPLAY_DB8,
+    .db09 = CY8CKIT_028_TFT_PIN_DISPLAY_DB9,
+    .db10 = CY8CKIT_028_TFT_PIN_DISPLAY_DB10,
+    .db11 = CY8CKIT_028_TFT_PIN_DISPLAY_DB11,
+    .db12 = CY8CKIT_028_TFT_PIN_DISPLAY_DB12,
+    .db13 = CY8CKIT_028_TFT_PIN_DISPLAY_DB13,
+    .db14 = CY8CKIT_028_TFT_PIN_DISPLAY_DB14,
+    .db15 = CY8CKIT_028_TFT_PIN_DISPLAY_DB15,
+    .nrd  = CY8CKIT_028_TFT_PIN_DISPLAY_NRD,
+    .nwr  = CY8CKIT_028_TFT_PIN_DISPLAY_NWR,
+    .dc   = CY8CKIT_028_TFT_PIN_DISPLAY_DC,
+    .rst  = CY8CKIT_028_TFT_PIN_DISPLAY_RST
+};
+
 
 mtb_bmi160_t motion_sensor;
 cyhal_i2c_t i2c;
@@ -108,7 +128,7 @@ cy_socket_sockaddr_t peer_addr;
 
 /* UDP Client task handle. */
 extern TaskHandle_t udp_client_task_handle;
-
+QueueHandle_t udp_que;
 
 
 /*******************************************************************************
@@ -151,6 +171,9 @@ void udp_client_task(void *arg)
 		}
 
 
+	udp_que =  xQueueCreate(3, 1);
+
+
 
     /* Variable to store the number of bytes sent to the UDP server. */
     uint32_t bytes_sent = 0;
@@ -190,114 +213,171 @@ void udp_client_task(void *arg)
 
     /* First send data to Server and wait to receive command */
     result = cy_socket_sendto(client_handle, START_COMM_MSG, strlen(START_COMM_MSG), CY_SOCKET_FLAGS_NONE,
-                                &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
-    if(result == CY_RSLT_SUCCESS)
-    {
-        printf("Data sent to server\n");
-    }
-    else
-    {
-        printf("Failed to send data to server. Error : %"PRIu32"\n", result);
-    }
+                                       &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
+           if(result == CY_RSLT_SUCCESS)
+           {
+               printf("Data sent to server\n");
+           }
+           else
+           {
+               printf("Failed to send data to server. Error : %"PRIu32"\n", result);
+           }
+           /* Wait till ON/OFF command is received from UDP Server . */
+    int shake=0;
 
+
+    mtb_st7789v_init8(&tft_pins);
+    //GUI_Init();
+    //GUI_SetFont(GUI_FONT_32B_1);
+    //GUI_DispString("Hello world!");
+    //vTaskDelay(pdMS_TO_TICKS(10000));
+    printf("============================================================\n");
     while(true)
     {
-        /* Wait till ON/OFF command is received from UDP Server . */
-        xTaskNotifyWait(0, 0, &led_state_ack, portMAX_DELAY);
+    	GUI_DispString("");
 
+        result = cy_socket_sendto(client_handle, START_COMM_MSG, strlen(START_COMM_MSG), CY_SOCKET_FLAGS_NONE,
+                                    &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
+        if(result == CY_RSLT_SUCCESS)
+        {
+            printf("Data sent to server\n");
+        }
+        else
+        {
+            printf("Failed to send data to server. Error : %"PRIu32"\n", result);
+        }
+        /* Wait till ON/OFF command is received from UDP Server . */
+
+        xTaskNotifyWait(0, 0, &led_state_ack, pdMS_TO_TICKS(1000)); //xTaskNotifyWait(0, 0, &led_state_ack, pdMS_TO_TICKS(1000));
         printf("============================================================\n");
 
+        //printf("============================================================\n");
+
         /* Send acknowledgment to server after setting the LED ON or OFF */
-        if(led_state_ack >= 1 && led_state_ack <= 100)
+        if(led_state_ack == 'S')
         {
+        	led_state_ack = 0;
             /* Turn the LED ON and set flag to send acknowledgment  */
             printf("Command received from server to shake it: %d\n", led_state_ack);
 
-            int accelArray[100] = {0};
+            //int accelArray[100] = {0};
             char accelString[20] = {0};
-            int shake=0;
+            char accelString2[10] = {0};
 
 
             int dataGyroX = 1;
             int dataGyroY = 1;
             int dataGyroZ = 1;
 
-		    for(int j=0; j<led_state_ack; j++){
 
-			    for(int i=0; i<100; i++){
+			while(1){
+			   led_state_ack = 0;
+			   //xTaskNotifyWait(0, 0, &led_state_ack, 0);
+			   int receive=0;
+			   xQueueReceive(udp_que, &receive, 1);
+			   if(receive == 'B'){
 
-				   mtb_bmi160_data_t data;
-				   mtb_bmi160_read(&motion_sensor, &data);
 
-				   printf("Accel: X:%6d Y:%6d Z:%6d\n", data.accel.x, data.accel.y, data.accel.z);
-				   printf("Gyro : X:%6d Y:%6d Z:%6d\n\n", data.gyro.x, data.gyro.y, data.gyro.z);
+					//memset(accelString, '0', 10);
+
+					sprintf(accelString, "%010d", shake);
+					//accelString[strlen(accelString)] = '0';
+
+					//for(int i = 0; i<strlen(accelString2); i++){
+
+					//	accelString[i] = accelString2[i];
+					//}
+
+						//accelString[strlen(accelString)] = '0';
+						//accelString[9] = 0;
+					printf("shake total = %s\n", accelString);
+
+		            result = cy_socket_sendto(client_handle, &accelString, 10, CY_SOCKET_FLAGS_NONE,
+		                                        &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
+		            if(result != CY_RSLT_SUCCESS)
+		            {
+		                printf("Failed to send Acknowledgment to server. Error: %"PRIu32"\n", result);
+		            }
+			   }else if(receive == 'W'){
+				   //GUI_DispString("YOU WIN!");
+				   printf("you win\n");
+				   shake=0;
+
+				   break;
+			   }else if(receive == 'L'){
+				   //GUI_DispString("YOU LOSE!");
+				   printf("you lose\n");
+				   shake=0;
+				   break;
+			   }
+
+			   //printf("%c\n", led_state_ack);
+			   mtb_bmi160_data_t data;
+			   mtb_bmi160_read(&motion_sensor, &data);
+
+			   //printf("Accel: X:%6d Y:%6d Z:%6d\n", data.accel.x, data.accel.y, data.accel.z);
+			   //printf("Gyro : X:%6d Y:%6d Z:%6d\n\n", data.gyro.x, data.gyro.y, data.gyro.z);
 
 #ifdef bmi160SwitchAdresses
-				   //x
-				   if(dataGyroX==1){
-					   if(data.gyro.x <= -sensitivity){
-						   shake++;
-						   dataGyroX=-1;
-					   }
-				   }else{
-					   if(data.gyro.x >= sensitivity){
-						   shake++;
-						   dataGyroX=1;
-					   }
+			   //x
+			   if(dataGyroX==1){
+				   if(data.gyro.x <= -sensitivity){
+					   shake++;
+					   dataGyroX=-1;
 				   }
-				   //y
-				   if(dataGyroY==1){
-					   if(data.gyro.y <= -sensitivity){
-						   shake++;
-						   dataGyroY=-1;
-					   }
-				   }else{
-					   if(data.gyro.y >= sensitivity){
-						   shake++;
-						   dataGyroY=1;
-					   }
+			   }else{
+				   if(data.gyro.x >= sensitivity){
+					   shake++;
+					   dataGyroX=1;
 				   }
-				   //z
-				   if(dataGyroZ==1){
-					   if(data.gyro.z <= -sensitivity){
-						   shake++;
-						   dataGyroZ=-1;
-					   }
-				   }else{
-					   if(data.gyro.z >= sensitivity){
-						   shake++;
-						   dataGyroZ=1;
-					   }
+			   }
+			   //y
+			   if(dataGyroY==1){
+				   if(data.gyro.y <= -sensitivity){
+					   shake++;
+					   dataGyroY=-1;
 				   }
+			   }else{
+				   if(data.gyro.y >= sensitivity){
+					   shake++;
+					   dataGyroY=1;
+				   }
+			   }
+			   //z
+			   if(dataGyroZ==1){
+				   if(data.gyro.z <= -sensitivity){
+					   shake++;
+					   dataGyroZ=-1;
+				   }
+			   }else{
+				   if(data.gyro.z >= sensitivity){
+					   shake++;
+					   dataGyroZ=1;
+				   }
+			   }
 
 
 #else
 
-				   data.accel.x = (data.accel.x <=0)? -data.accel.x : data.accel.x;
-				   data.accel.y = (data.accel.y <=0)? -data.accel.y : data.accel.y;
-				   data.accel.z = (data.accel.z <=0)? -data.accel.z : data.accel.z;
+			   data.accel.x = (data.accel.x <=0)? -data.accel.x : data.accel.x;
+			   data.accel.y = (data.accel.y <=0)? -data.accel.y : data.accel.y;
+			   data.accel.z = (data.accel.z <=0)? -data.accel.z : data.accel.z;
 
-				   accelArray[j]+= data.accel.x + data.accel.y + data.accel.z;
+			   accelArray[j]+= data.accel.x + data.accel.y + data.accel.z;
 
 #endif
-				   cyhal_system_delay_ms(10);
-				}
+
+			   //cyhal_system_delay_ms(5);
+			}
 
 
-		    }
 
-			printf("Accel total = %d\n", shake);
 
-			sprintf(accelString, "%d", shake);
 
-            result = cy_socket_sendto(client_handle, &accelString, strlen(accelString), CY_SOCKET_FLAGS_NONE,
-                                        &udp_server_addr, sizeof(cy_socket_sockaddr_t), &bytes_sent);
-            if(result != CY_RSLT_SUCCESS)
-            {
-                printf("Failed to send Acknowledgment to server. Error: %"PRIu32"\n", result);
-            }
+
         }
-        else
+        //vTaskDelay(pdMS_TO_TICKS(1000));
+       /* else
         {
             printf("Invalid command received.\n");
             result = cy_socket_sendto(client_handle, INVALID_CMD_MSG, strlen(INVALID_CMD_MSG), CY_SOCKET_FLAGS_NONE,
@@ -306,7 +386,7 @@ void udp_client_task(void *arg)
             {
                 printf("Failed to send acknowledgment to server. Error: %"PRIu32"\n", result);
             }
-        }
+        }*/
         
         //print_heap_usage("After controlling the LED and ACKing the server");
     }
@@ -433,8 +513,8 @@ cy_rslt_t udp_client_recv_handler(cy_socket_t socket_handle, void *arg)
                                     CY_SOCKET_FLAGS_RECVFROM_NONE, NULL, 0, &bytes_received);
 
     /* Send notification to the task to turn the LED on/off and send acknowledgment to the server. */
-    xTaskNotify(udp_client_task_handle, (uint32_t)rx_buffer[0], eSetValueWithoutOverwrite);
-
+    xTaskNotify(udp_client_task_handle, (uint32_t)rx_buffer[0], eSetValueWithOverwrite);
+    xQueueSend(udp_que, &rx_buffer[0], portMAX_DELAY);
     return result;
 }
 

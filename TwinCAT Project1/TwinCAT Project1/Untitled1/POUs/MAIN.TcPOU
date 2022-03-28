@@ -4,24 +4,45 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	fbUdpCreate 			: FB_SocketUdpCreate;
+	fbUdpCreate2 			: FB_SocketUdpCreate;
 	fbSocketSend  			: FB_SocketUdpSendTo;
 	fbSocketReceive 		: FB_SocketUdpReceiveFrom;
+	fbSocketSend2  			: FB_SocketUdpSendTo;
+	fbSocketReceive2 		: FB_SocketUdpReceiveFrom;
 	fbSocketClose			: FB_SocketClose;
 	fbCloseAll				: FB_SocketCloseAll;	
 
 	sLocalHost				: T_IPv4Addr 	:= '192.168.0.253';(* Local address: String containing an (Ipv4) Internet Protocol dotted address. *)
 	nLocalPort				: UDINT			:= 24042;(* Local address: IP port number. *)
-	sRemoteHost				: T_IPv4Addr 	:= '192.168.0.101';(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
-	nRemotePort				: UDINT 		:= 62510;(* Remote address: IP port number. *)
-	nNumberSend 			: UDINT    		:= 1;
-	nNumberReceive			: UDINT    		:= 0;
+	nLocalPort2				: UDINT			:= 24043;(* Local address: IP port number. *)
+	sRemoteHost				: T_IPv4Addr;// 	:= '192.168.0.101';(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
+	nRemotePort				: UDINT 	;//	:= 62510;(* Remote address: IP port number. *)
+	sRemoteHost2			: T_IPv4Addr;	(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
+	nRemotePort2			: UDINT 	;   (* Remote address: IP port number. *)
 	
+	sOK						: STRING		:= 'B';
+	sWIN					: STRING		:= 'W';
+	sLOSE					: STRING		:= 'L';
+	sNumberReceive			: STRING    	:= '';
+	sNumberReceive2			: STRING    	:= '';
+	sStartSignal			: STRING   		:= 'A';
+	sStart					: STRING 		:= 'S';
 	bInitialize				: BOOL := TRUE;
 	bUdpCreated				: BOOL;
+	bUdpCreated2			: BOOL;
 	nState 					: INT;
 	bEnable 				: BOOL 	:= TRUE;
 	nErrorId    : UDINT;
-	fbCreateTimer	: TON := ( PT := T#5S);
+	fbCreateTimer	: TON := ( PT := T#100MS);
+
+	bVar					: BOOL;
+	
+	nShake1 				:INT := 0;
+	nShake2 				:INT := 0;
+	nNumber 				:INT := 0;
+	pCurrentSocket 			:T_HSOCKET;
+	hSocket: INT;
+	nsh: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -41,68 +62,207 @@ CASE nState OF
 0:
 	IF bEnable THEN
 		bUdpCreated := FALSE;
-		//bMulticastAdded := FALSE;
 		nState := 1;
 	END_IF
 1:
 	fbUdpCreate( bExecute := FALSE );
+	fbUdpCreate2( bExecute := FALSE );
 	fbUdpCreate( nLocalPort := nLocalPort, sLocalHost := sLocalHost, bExecute := TRUE );
+	fbUdpCreate2( nLocalPort := nLocalPort2, sLocalHost := sLocalHost, bExecute := TRUE );
 	nState := 2;
 2:
 	fbUdpCreate( bExecute:=FALSE );
-	IF NOT fbUdpCreate.bBusy THEN
-		IF NOT fbUdpCreate.bError THEN
+	fbUdpCreate2( bExecute:=FALSE );
+	IF NOT (fbUdpCreate.bBusy AND fbUdpCreate2.bBusy) THEN
+		IF NOT (fbUdpCreate.bError AND fbUdpCreate2.bError) THEN
 			bUdpCreated := TRUE;
-			//fbSocketAddMulticast( bExecute := FALSE );
-			//fbSocketAddMulticast( hSocket := fbUdpCreate.hSocket, sMulticastAddr := sMulticastAddr, bExecute := TRUE );
+			bUdpCreated2 := TRUE;
+			//fbSocketReceive( bExecute := FALSE );
+			
+			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 1, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#100S);
+			
+			
 			nState := 3;
 		ELSE
 			nState := 100;
 		END_IF
 	END_IF
 3:
-	//fbSocketAddMulticast( bExecute := FALSE );
-	//IF NOT fbSocketAddMulticast.bBusy THEN
-		//IF NOT fbSocketAddMulticast.bError THEN
-			//bMulticastAdded := TRUE;
+
+	fbSocketReceive( bExecute := FALSE );
+		IF NOT fbSocketReceive.bBusy THEN
+			IF NOT fbSocketReceive.bError THEN
+				//nStringInt := StringToInt(in := sNumberReceive);
+				IF (bVar := sNumberReceive <> 'A') THEN
+					nState := 11;
+				ELSE
+					sRemoteHost := fbSocketReceive.sRemoteHost;
+					nRemotePort := fbSocketReceive.nRemotePort;
+					nState := 23;
+					GVL.g_nConnected := 1;
+					fbSocketReceive2( hSocket := fbUdpCreate2.hSocket, cbLen := 1, pDest := ADR(sNumberReceive2), bExecute := TRUE , tTimeout := T#100S);
+				END_IF
+				
+			ELSE
+				nState := 100;
+			END_IF
+		END_IF
+23:
+	fbSocketReceive2( bExecute := FALSE );
+		IF NOT fbSocketReceive2.bBusy THEN
+			IF NOT fbSocketReceive2.bError THEN
+				//nStringInt := StringToInt(in := sNumberReceive);
+				IF (bVar := sNumberReceive2 <> 'A') THEN
+					nState := 211;
+				ELSE
+					sRemoteHost2 := fbSocketReceive2.sRemoteHost;
+					nRemotePort2 := fbSocketReceive2.nRemotePort;
+					nState := 40;
+					GVL.g_nConnected := 2;
+				END_IF
+				
+			ELSE
+				nState := 100;
+			END_IF
+		END_IF	
+//send S To Start game		
+40:	
+	fbSocketReceive( bExecute := FALSE );
+	fbSocketReceive2( bExecute := FALSE );
+	IF NOT fbSocketReceive.bBusy THEN
+		fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 1, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+	END_IF
+	IF NOT fbSocketReceive2.bBusy THEN
+		fbSocketReceive2( hSocket := fbUdpCreate2.hSocket, cbLen := 1, pDest := ADR(sNumberReceive2), bExecute := TRUE , tTimeout := T#10S);
+	END_IF
+	fbSocketSend( bExecute := FALSE );
+	fbSocketSend2( bExecute := FALSE );
+	IF NOT (fbSocketSend.bBusy AND fbSocketSend2.bBusy) THEN
+		IF NOT (fbSocketSend.bError AND fbSocketSend2.bError) THEN	
+			IF GVL.g_bStart THEN
+			GVL.g_sWinner := '';
+				GVL.g_nShake1 := 0;
+				GVL.g_nShake2 := 0;
+				sNumberReceive := '';
+				sNumberReceive2 := '';
+				//nCounterOut := nCounterOut + 1;
+				fbSocketSend( bExecute := FALSE );
+				fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := 1, pSrc := ADR(sStart), bExecute := TRUE );
+				fbSocketSend2( bExecute := FALSE );
+				fbSocketSend2( nRemotePort := nRemotePort2, sRemoteHost := sRemoteHost2, hSocket := fbUdpCreate2.hSocket, cbLen := 1, pSrc := ADR(sStart), bExecute := TRUE );
+				nState := 41;
+			END_IF	
+		END_IF
+	END_IF
+41:
+	fbSocketSend( bExecute := FALSE );
+	fbSocketSend2( bExecute := FALSE );
+	IF NOT (fbSocketSend.bBusy AND fbSocketSend2.bBusy) THEN
+		IF NOT (fbSocketSend.bError AND fbSocketSend2.bError) THEN
+			
 			nState := 4;
-	//	ELSE
-		//	nState := 100;
-//		END_IF
-//	END_IF
+		ELSE
+			nState := 100;
+		END_IF
+	END_IF
 	
+//send B To get values
 4:
-	IF bEnable THEN
+
 		//nCounterOut := nCounterOut + 1;
 		fbSocketSend( bExecute := FALSE );
-		fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberSend), pSrc := ADR(nNumberSend), bExecute := TRUE );
+		fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := 1, pSrc := ADR(sOK), bExecute := TRUE );
+		fbSocketSend2( bExecute := FALSE );
+		fbSocketSend2( nRemotePort := nRemotePort2, sRemoteHost := sRemoteHost2, hSocket := fbUdpCreate2.hSocket, cbLen := 1, pSrc := ADR(sOK), bExecute := TRUE );
 		nState := 5;
-	ELSE
-		nState := 10;
-	END_IF
+
 5:
 	fbSocketSend( bExecute := FALSE );
-	IF NOT fbSocketSend.bBusy THEN
-		IF NOT fbSocketSend.bError THEN
-			fbSocketReceive( bExecute := FALSE );
-			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := SIZEOF(nNumberReceive), pDest := ADR(nNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+	fbSocketSend2( bExecute := FALSE );
+	IF NOT (fbSocketSend.bBusy AND fbSocketSend2.bBusy) THEN
+		IF NOT (fbSocketSend.bError AND fbSocketSend2.bError) THEN
+			//fbSocketReceive( bExecute := FALSE );
+			sNumberReceive := '';
+			fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 10, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+			sNumberReceive2 := '';
+			fbSocketReceive2( hSocket := fbUdpCreate2.hSocket, cbLen := 10, pDest := ADR(sNumberReceive2), bExecute := TRUE , tTimeout := T#10S);
 			nState := 6;
 		ELSE
  			nState := 100;
 		END_IF
 	END_IF
+
+//receive value
 6:	
 	fbSocketReceive( bExecute := FALSE );
 	IF NOT fbSocketReceive.bBusy THEN
 		IF NOT fbSocketReceive.bError THEN
-			nState := 10;
+		
+			//fbSocketReceive( bExecute := FALSE );	
+			IF (bVar := sNumberReceive = '') THEN
+					nState := 4;
+			END_IF
 			
-			//fbCreateTimer( IN := FALSE, PT := T#5S );
+			IF(bVar := sNumberReceive = 'A') THEN
+				sNumberReceive := '';
+				fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 10, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+
+			ELSE
+					GVL.g_nShake1:= STRING_TO_WORD(sNumberReceive);
+					nState := 26;
+
+			END_IF
+			
 		ELSE
 			nState := 100;
 		END_IF
 	END_IF
+	
+26:	
+	fbSocketReceive2( bExecute := FALSE );
+	IF NOT fbSocketReceive2.bBusy THEN
+		IF NOT fbSocketReceive2.bError THEN
+		
+			//fbSocketReceive( bExecute := FALSE );	
+			IF (bVar := sNumberReceive2 = '') THEN
+					nState := 4;
+			END_IF
+			IF (bVar := sNumberReceive2 = 'A'	) THEN	
+					
+				sNumberReceive2 := '';
+				fbSocketReceive2( hSocket := fbUdpCreate2.hSocket, cbLen := 10, pDest := ADR(sNumberReceive2), bExecute := TRUE , tTimeout := T#10S);
 
+			ELSE
+					GVL.g_nShake2:= STRING_TO_WORD(sNumberReceive2);
+					nNumber := GVL.g_nShake1-GVL.g_nShake2;
+					nState := 10;
+					
+					IF ( nNumber >= GVL.g_nShakeWin) THEN
+						
+						fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := 1, pSrc := ADR(sWIN), bExecute := TRUE );
+						fbSocketSend2( nRemotePort := nRemotePort2, sRemoteHost := sRemoteHost2, hSocket := fbUdpCreate2.hSocket, cbLen := 1, pSrc := ADR(sLOSE), bExecute := TRUE );
+						nState := 40;
+						GVL.g_sWinner := 'PLAYER 1 WON';
+					END_IF
+					
+					IF ( nNumber <= -GVL.g_nShakeWin) THEN
+						
+						fbSocketSend( nRemotePort := nRemotePort, sRemoteHost := sRemoteHost, hSocket := fbUdpCreate.hSocket, cbLen := 1, pSrc := ADR(sLOSE), bExecute := TRUE );
+						fbSocketSend2( nRemotePort := nRemotePort2, sRemoteHost := sRemoteHost2, hSocket := fbUdpCreate2.hSocket, cbLen := 1, pSrc := ADR(sWIN), bExecute := TRUE );
+						nState := 40;
+						GVL.g_sWinner := 'PLAYER 2 WON';
+					END_IF
+					
+			END_IF
+
+		ELSE
+			nState := 100;
+		END_IF
+	END_IF
+	
+	
+	
+//timer and start after
 10:
 	fbCreateTimer( IN := TRUE);
 	IF fbCreateTimer.Q THEN
@@ -111,18 +271,23 @@ CASE nState OF
 	END_IF
 	//fbSocketDropMulticast( bExecute := FALSE );
 	//fbSocketDropMulticast( hSocket := fbUdpCreate.hSocket, sMulticastAddr := sMulticastAddr, bExecute := TRUE );
-
+//receive A
 11:
-	//fbSocketDropMulticast( bExecute := FALSE );
-	//IF NOT fbSocketDropMulticast.bBusy THEN
-		//bMulticastAdded := FALSE;
-		//IF NOT fbSocketDropMulticast.bError THEN
-		//	nState := 20;
-		//ELSE
-			//nState := 100;
-	//	END_IF
-	//END_IF
 
+	fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 10, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+	nState := 3;
+//receive message
+211:
+
+	fbSocketReceive2( hSocket := fbUdpCreate2.hSocket, cbLen := 10, pDest := ADR(sNumberReceive2), bExecute := TRUE , tTimeout := T#10S);
+	nState := 23;
+//receive message
+12:
+
+	fbSocketReceive( hSocket := fbUdpCreate.hSocket, cbLen := 10, pDest := ADR(sNumberReceive), bExecute := TRUE , tTimeout := T#10S);
+	nState := 6;
+	
+//if disconnected or error
 20:	
 	fbSocketClose( bExecute := FALSE );
 	fbSocketClose( hSocket := fbUdpCreate.hSocket, bExecute := TRUE );
@@ -139,8 +304,6 @@ CASE nState OF
 	END_IF
 	
 100:
-	//IF bMulticastAdded THEN
-		//nState := 10;
 	IF bUdpCreated THEN
 		nState := 20;
 	ELSE
@@ -150,22 +313,65 @@ CASE nState OF
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="26" Count="1" />
-      <LineId Id="139" Count="0" />
-      <LineId Id="28" Count="1" />
-      <LineId Id="13" Count="1" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="10" Count="0" />
-      <LineId Id="32" Count="60" />
-      <LineId Id="164" Count="0" />
-      <LineId Id="162" Count="0" />
-      <LineId Id="93" Count="5" />
-      <LineId Id="172" Count="0" />
-      <LineId Id="165" Count="0" />
-      <LineId Id="173" Count="0" />
-      <LineId Id="166" Count="1" />
-      <LineId Id="99" Count="37" />
+      <LineId Id="366" Count="32" />
+      <LineId Id="575" Count="0" />
+      <LineId Id="399" Count="0" />
+      <LineId Id="574" Count="0" />
+      <LineId Id="400" Count="16" />
+      <LineId Id="651" Count="0" />
+      <LineId Id="576" Count="0" />
+      <LineId Id="417" Count="16" />
+      <LineId Id="652" Count="0" />
+      <LineId Id="434" Count="5" />
+      <LineId Id="581" Count="0" />
+      <LineId Id="670" Count="0" />
+      <LineId Id="731" Count="1" />
+      <LineId Id="728" Count="0" />
+      <LineId Id="726" Count="1" />
+      <LineId Id="730" Count="0" />
+      <LineId Id="729" Count="0" />
+      <LineId Id="725" Count="0" />
+      <LineId Id="673" Count="0" />
+      <LineId Id="671" Count="1" />
+      <LineId Id="582" Count="0" />
+      <LineId Id="620" Count="0" />
+      <LineId Id="655" Count="2" />
+      <LineId Id="675" Count="1" />
+      <LineId Id="621" Count="4" />
+      <LineId Id="628" Count="0" />
+      <LineId Id="583" Count="0" />
+      <LineId Id="629" Count="0" />
+      <LineId Id="674" Count="0" />
+      <LineId Id="630" Count="0" />
+      <LineId Id="637" Count="3" />
+      <LineId Id="645" Count="4" />
+      <LineId Id="633" Count="0" />
+      <LineId Id="650" Count="0" />
+      <LineId Id="440" Count="0" />
+      <LineId Id="596" Count="0" />
+      <LineId Id="442" Count="5" />
+      <LineId Id="614" Count="0" />
+      <LineId Id="451" Count="25" />
+      <LineId Id="659" Count="1" />
+      <LineId Id="658" Count="0" />
+      <LineId Id="662" Count="1" />
+      <LineId Id="661" Count="0" />
+      <LineId Id="477" Count="5" />
+      <LineId Id="485" Count="12" />
+      <LineId Id="664" Count="0" />
+      <LineId Id="669" Count="0" />
+      <LineId Id="665" Count="0" />
+      <LineId Id="667" Count="1" />
+      <LineId Id="666" Count="0" />
+      <LineId Id="498" Count="3" />
+      <LineId Id="578" Count="0" />
+      <LineId Id="502" Count="3" />
+      <LineId Id="580" Count="0" />
+      <LineId Id="653" Count="0" />
+      <LineId Id="506" Count="6" />
+      <LineId Id="654" Count="0" />
+      <LineId Id="513" Count="2" />
+      <LineId Id="518" Count="55" />
       <LineId Id="31" Count="0" />
     </LineIds>
   </POU>

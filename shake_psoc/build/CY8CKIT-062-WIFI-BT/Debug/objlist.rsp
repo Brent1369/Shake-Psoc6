@@ -15,9 +15,11 @@ C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/D
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/udp_client.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/mtb-pdl-cat1/release-v2.3.1/drivers/source/TOOLCHAIN_GCC_ARM/cy_syslib_gcc.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/BMI160_driver/bmi160_v3.9.1/bmi160.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/CY8CKIT-028-TFT/release-v1.2.0/cy8ckit_028_tft.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/abstraction-rtos/release-v1.5.0/source/COMPONENT_FREERTOS/cyabs_freertos_helpers.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/abstraction-rtos/release-v1.5.0/source/COMPONENT_FREERTOS/cyabs_rtos_freertos.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/abstraction-rtos/release-v1.5.0/source/cy_worker_thread.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/audio-codec-ak4954a/release-v1.0.1/mtb_ak4954a.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/capsense/release-v2.10.0/cy_capsense_centroid.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/capsense/release-v2.10.0/cy_capsense_control.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/capsense/release-v2.10.0/cy_capsense_csd.o
@@ -37,6 +39,10 @@ C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/D
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/connectivity-utilities/release-v3.2.0/linked_list/cy_linked_list.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/connectivity-utilities/release-v3.2.0/network/COMPONENT_LWIP/cy_nw_helper.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/connectivity-utilities/release-v3.2.0/network/cy_nw_helper_common.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/display-tft-st7789v/release-v1.0.1/configs/emwin/GUIConf.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/display-tft-st7789v/release-v1.0.1/configs/emwin/GUI_X.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/display-tft-st7789v/release-v1.0.1/configs/emwin/LCDConf.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/display-tft-st7789v/release-v1.0.1/mtb_st7789v.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/freertos/release-v10.4.302/Source/croutine.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/freertos/release-v10.4.302/Source/event_groups.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/freertos/release-v10.4.302/Source/list.o
@@ -343,6 +349,7 @@ C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/D
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/secure-sockets/release-v2.5.0/source/COMPONENT_MBEDTLS/iot_crypto.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/secure-sockets/release-v2.5.0/source/cy_pkcs_psa_logging.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/secure-sockets/release-v2.5.0/source/cy_tls_weak.o
+C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/sensor-light/release-v1.1.0/mtb_light_sensor.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/sensor-motion-bmi160/release-v1.1.1/mtb_bmi160.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/udb-sdio-whd/release-v1.1.1/COMPONENT_UDB_SDIO_P2/SDIO_HOST_cfg.o
 C:/Users/vreys/OneDrive/school/shake_psoc/shake_psoc/build/CY8CKIT-062-WIFI-BT/Debug/ext/mtb_shared/udb-sdio-whd/release-v1.1.1/SDIO_HOST.o

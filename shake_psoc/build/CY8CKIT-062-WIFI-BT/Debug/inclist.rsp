@@ -7,10 +7,12 @@
 -I./libs/TARGET_CY8CKIT-062-WIFI-BT/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource
 -I./libs/TARGET_CY8CKIT-062-WIFI-BT/bluetooth
 -I../mtb_shared/BMI160_driver/bmi160_v3.9.1
+-I../mtb_shared/CY8CKIT-028-TFT/release-v1.2.0
 -I../mtb_shared/abstraction-rtos/release-v1.5.0
 -I../mtb_shared/abstraction-rtos/release-v1.5.0/include
 -I../mtb_shared/abstraction-rtos/release-v1.5.0/include/COMPONENT_FREERTOS
 -I../mtb_shared/abstraction-rtos/release-v1.5.0/include/Template
+-I../mtb_shared/audio-codec-ak4954a/release-v1.0.1
 -I../mtb_shared/capsense/release-v2.10.0
 -I../mtb_shared/clib-support/release-v1.2.0
 -I../mtb_shared/clib-support/release-v1.2.0/TOOLCHAIN_GCC_ARM
@@ -22,6 +24,14 @@
 -I../mtb_shared/connectivity-utilities/release-v3.2.0/network
 -I../mtb_shared/core-lib/release-v1.3.0
 -I../mtb_shared/core-lib/release-v1.3.0/include
+-I../mtb_shared/display-tft-st7789v/release-v1.0.1
+-I../mtb_shared/display-tft-st7789v/release-v1.0.1/configs
+-I../mtb_shared/display-tft-st7789v/release-v1.0.1/configs/emwin
+-I../mtb_shared/emwin/release-v5.48.1
+-I../mtb_shared/emwin/release-v5.48.1/GUI
+-I../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP
+-I../mtb_shared/emwin/release-v5.48.1/GUI/COMPONENT_SOFTFP/COMPONENT_EMWIN_NOSNTS
+-I../mtb_shared/emwin/release-v5.48.1/GUI/Include
 -I../mtb_shared/freertos/release-v10.4.302
 -I../mtb_shared/freertos/release-v10.4.302/Source
 -I../mtb_shared/freertos/release-v10.4.302/Source/include
@@ -72,6 +82,7 @@
 -I../mtb_shared/secure-sockets/release-v2.5.0/include
 -I../mtb_shared/secure-sockets/release-v2.5.0/include/COMPONENT_FREERTOS
 -I../mtb_shared/secure-sockets/release-v2.5.0/source
+-I../mtb_shared/sensor-light/release-v1.1.0
 -I../mtb_shared/sensor-motion-bmi160/release-v1.1.1
 -I../mtb_shared/udb-sdio-whd/release-v1.1.1
 -I../mtb_shared/udb-sdio-whd/release-v1.1.1/COMPONENT_UDB_SDIO_P2
