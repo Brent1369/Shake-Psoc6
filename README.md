@@ -28,6 +28,11 @@ comment out one of the server ports to set the psoc as player one or two.
 There always needs to be one player 1 and one player 2, otherwhise the Game will not work correctly.
 ![image](https://user-images.githubusercontent.com/69217508/160469113-a9eb9095-989c-4614-9603-6a9c9bec604f.png) 
 
+The sensitivity of how big the accelerometer value needs to be in order to count as a "shake"  
+Lower value = higher sensitivity, higher value = lower sensitivity.
+![image](https://user-images.githubusercontent.com/69217508/160471473-891d55db-cd98-45d6-9dc1-4531be45bd4d.png)
+
+
 ### Wrong sensor type
 The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround. Like the adresses of a BMI270.  
 For this i created a ifdef so in case other people do actually have the BMI160 sensor will be able to use this code.   
