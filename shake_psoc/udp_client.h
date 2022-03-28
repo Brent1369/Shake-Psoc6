@@ -51,15 +51,22 @@
 
 #define bmi160SwitchAdresses 1
 
-#define sensitivity 50
 #define WIFI_SSID                         "telenet-A6AD7E7"
 #define WIFI_PASSWORD                     "vzemhjvX4arp"
+
 
 /* Change the server IP address to match the UDP server address (IP address
  * of the PC).
  */
 #define UDP_SERVER_IP_ADDRESS             MAKE_IPV4_ADDRESS(192, 168, 0, 253)
-#define UDP_SERVER_PORT                   (24042)
+
+#define UDP_SERVER_PORT                   (24042) //PLAYER 1 PORT
+#define UDP_SERVER_PORT                   (24043) //PLAYER 2 PORT
+
+#define sensitivity 50
+
+
+
 
 /* Security type of the Wi-Fi access point. See 'cy_wcm_security_t' structure
  * in "cy_wcm.h" for more details.

@@ -35,6 +35,11 @@
               <v n="TextDefault">"players connected"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
+            <o>
+              <v n="TextID">"709"</v>
+              <v n="TextDefault">"Start Game"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
           </l>
           <l n="Languages" t="ArrayList" />
           <v n="GuidInit">{c67d086c-2e30-433c-9b8b-34a674f9f0f4}</v>

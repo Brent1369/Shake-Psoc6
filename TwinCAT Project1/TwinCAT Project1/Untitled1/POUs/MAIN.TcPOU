@@ -11,10 +11,12 @@ VAR
 	fbSocketReceive2 		: FB_SocketUdpReceiveFrom;
 	fbSocketClose			: FB_SocketClose;
 	fbCloseAll				: FB_SocketCloseAll;	
-
+	
+	fbCreateTimer	: TON := ( PT := T#100MS);
 	sLocalHost				: T_IPv4Addr 	:= '192.168.0.253';(* Local address: String containing an (Ipv4) Internet Protocol dotted address. *)
 	nLocalPort				: UDINT			:= 24042;(* Local address: IP port number. *)
 	nLocalPort2				: UDINT			:= 24043;(* Local address: IP port number. *)
+	
 	sRemoteHost				: T_IPv4Addr;// 	:= '192.168.0.101';(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
 	nRemotePort				: UDINT 	;//	:= 62510;(* Remote address: IP port number. *)
 	sRemoteHost2			: T_IPv4Addr;	(* Remote address: String containing an (Ipv4) Internet Protocol dotted address. *)
@@ -33,7 +35,7 @@ VAR
 	nState 					: INT;
 	bEnable 				: BOOL 	:= TRUE;
 	nErrorId    : UDINT;
-	fbCreateTimer	: TON := ( PT := T#100MS);
+	
 
 	bVar					: BOOL;
 	

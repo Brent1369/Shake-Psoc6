@@ -356,14 +356,44 @@ void udp_client_task(void *arg)
 				   }
 			   }
 
-
 #else
 
-			   data.accel.x = (data.accel.x <=0)? -data.accel.x : data.accel.x;
-			   data.accel.y = (data.accel.y <=0)? -data.accel.y : data.accel.y;
-			   data.accel.z = (data.accel.z <=0)? -data.accel.z : data.accel.z;
-
-			   accelArray[j]+= data.accel.x + data.accel.y + data.accel.z;
+			   //x
+			   if(dataGyroX==1){
+				   if(data.accel.x <= -sensitivity){
+					   shake++;
+					   dataGyroX=-1;
+				   }
+			   }else{
+				   if(data.accel.x >= sensitivity){
+					   shake++;
+					   dataGyroX=1;
+				   }
+			   }
+			   //y
+			   if(dataGyroY==1){
+				   if(data.accel.y <= -sensitivity){
+					   shake++;
+					   dataGyroY=-1;
+				   }
+			   }else{
+				   if(data.accel.y >= sensitivity){
+					   shake++;
+					   dataGyroY=1;
+				   }
+			   }
+			   //z
+			   if(dataGyroZ==1){
+				   if(data.accel.z <= -sensitivity){
+					   shake++;
+					   dataGyroZ=-1;
+				   }
+			   }else{
+				   if(data.accel.z >= sensitivity){
+					   shake++;
+					   dataGyroZ=1;
+				   }
+			   }
 
 #endif
 
