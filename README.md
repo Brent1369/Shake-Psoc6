@@ -4,12 +4,20 @@
 
 In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the accelerometer values. The data is send and received via UDP with a Beckhoff PLC server. The psoc who is shaken the hardest will win this game.
 
-when the Psoc starts it will send 'A' to the server(or any device you want to connect to the Psoc)
+when the Psoc starts it will send 'A' to the server(or any device you want to connect to the Psoc). when both players are connected the start button can be pressed to start the game. The PLC will then send an 'S' to the Psocs and the psocs will start measuring how much they are being shaken.
+  
+The PLC then cyclically sends 'B' to the psoc and the psoc will send its current shake value back. When the PLC decides the winner it will send a 'L' to the loser psoc and a 'W' to the winning psoc and the visualization from the PLC will declare the winner. The button can then be pressed in order to start another game.
 
-the server then sends a value from 1-100 wich is the time in seconds the psoc will be measuring the shaking.
-After this time has passed the psoc will send the shake value in a string(asci) back to the server.
+Player 1 sends to port 24042  
+Player 2 sends to port 24043  
 
 ## How to use
+in Twincat:  
+change sLocalHost to the ip of the PLC. in MAIN 
+![image](https://user-images.githubusercontent.com/69217508/160467118-beb13334-0497-4a65-b301-0d5519010abd.png)
+optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner. in GVL 
+PS: g_nShake1 and g_nShake2 are the shake values of the Psocs. This can be used to control something like a LED array.
+![image](https://user-images.githubusercontent.com/69217508/160467286-f3497263-82cb-4ca5-9738-9ee7152e225d.png)
 
 Change WIFI_SSID and WIFI_PASSWORD to the name and password of your wifi network in udp_client.h  
 ![image](./images/wifi.png)   
