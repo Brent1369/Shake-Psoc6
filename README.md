@@ -18,7 +18,7 @@ change sLocalHost to the ip of the PLC.
 ![image](https://user-images.githubusercontent.com/69217508/160467118-beb13334-0497-4a65-b301-0d5519010abd.png)
 optionally: the g_nShakeWin can be changed to set the ammout of shaking that has to has happend to declare the winner.  
 PS: g_nShake1 and g_nShake2 are the shake values of the Psocs. This can be used to control something like a LED array.
-![image](https://user-images.githubusercontent.com/69217508/160470503-e876e5b0-b4ad-40e3-80f1-2165f78f4f56.png)
+![image](https://user-images.githubusercontent.com/69217508/160470889-831c71f6-1441-43fc-a938-b056ceb429d5.png)
 
 Change WIFI_SSID and WIFI_PASSWORD to the name and password of your wifi network in udp_client.h  
 ![image](./images/wifi.png)   
