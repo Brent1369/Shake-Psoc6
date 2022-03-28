@@ -1,5 +1,5 @@
 # Shake Psoc6
-![image](https://user-images.githubusercontent.com/69217508/160465769-ed140bcf-c851-4c59-b12a-2ab5753dc2c4.png)
+![image](https://user-images.githubusercontent.com/69217508/160470654-f1ec0edb-1e0f-4876-9e38-e9c732972518.png)
 
 
 In this project a Psoc 6 with a CY8CKIT-028-TFT shield is used to measure the accelerometer values. The data is send and received via UDP with a Beckhoff PLC server. The psoc who is shaken the hardest will win this game.
