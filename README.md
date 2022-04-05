@@ -32,6 +32,9 @@ The sensitivity of how big the accelerometer value needs to be in order to count
 Lower value = higher sensitivity, higher value = lower sensitivity.  
 ![image](https://user-images.githubusercontent.com/69217508/160471473-891d55db-cd98-45d6-9dc1-4531be45bd4d.png)
 
+Github did not want to include the board in lib
+![image](https://user-images.githubusercontent.com/69217508/161760160-c092408a-39e8-4c59-aed1-770d92dc27fa.png)
+so i added a zip of shake_psoc. Just remove the shake_psoc map and unzip the rar file.
 
 ### Wrong sensor type
 The CY8CKIT-028-TFT shield claims to have a BMI160, but in my case the register adresses of the acceleration and gyroscope data where switched arround. Like the adresses of a BMI270.  
